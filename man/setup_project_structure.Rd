@@ -7,7 +7,8 @@
 setup_project_structure(dir = getwd())
 }
 \arguments{
-\item{dir}{The project root directory. Defaults to the current working directory.}
+\item{dir}{The project root directory. Defaults to the current working
+directory.}
 }
 \value{
 \code{dir} (invisibly).

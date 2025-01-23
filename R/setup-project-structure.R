@@ -12,7 +12,8 @@
 #' |--- scripts
 #' ```
 #'
-#' @param dir The project root directory. Defaults to the current working directory.
+#' @param dir The project root directory. Defaults to the current working
+#' directory.
 #'
 #' @return `dir` (invisibly).
 #' @export
