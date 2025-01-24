@@ -17,14 +17,23 @@ directory.}
 This function creates subdirectories for a data project.
 }
 \details{
-\if{html}{\out{<div class="sourceCode">}}\preformatted{project-root-dir
-|--- data
-     |--- 1-source
-     |--- 2-aux
-     |--- 3-final
-|--- output
-|--- scripts
-}\if{html}{\out{</div>}}
+The following subdirectories are created under \verb{my-proj/}:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{my-proj/
+|--- data/
+     |--- 1-source/
+     |--- 2-aux/
+     |--- 3-final/
+|--- output/
+|--- scripts/
+}\if{html}{\out{</div>}}\tabular{ll}{
+   Folder \tab Use \cr
+   \verb{data/1-source/} \tab Unmodified source data originating outside the project. \cr
+   \verb{data/2-aux/} \tab Intermediate data created within the project or auxiliary data from outside the project. In other words, anything that isn't source or final data. \cr
+   \verb{data/3-final/} \tab End-point data products (native R format only). \cr
+   \verb{output/} \tab All data products intended for use outside R. \cr
+   \verb{scripts/} \tab All script files. \cr
+}
 }
 \examples{
 \dontrun{

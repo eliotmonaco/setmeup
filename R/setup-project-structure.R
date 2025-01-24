@@ -1,16 +1,28 @@
 #' Setup project structure
 #'
+#' @description
 #' This function creates subdirectories for a data project.
 #'
+#' @details
+#' The following subdirectories are created under `my-proj/`:
+#'
 #' ```
-#' project-root-dir
-#' |--- data
-#'      |--- 1-source
-#'      |--- 2-aux
-#'      |--- 3-final
-#' |--- output
-#' |--- scripts
+#' my-proj/
+#' |--- data/
+#'      |--- 1-source/
+#'      |--- 2-aux/
+#'      |--- 3-final/
+#' |--- output/
+#' |--- scripts/
 #' ```
+#'
+#' | Folder | Use |
+#' |---|---|
+#' | `data/1-source/` | Unmodified source data originating outside the project. |
+#' | `data/2-aux/` | Intermediate data created within the project or auxiliary data from outside the project. In other words, anything that isn't source or final data. |
+#' | `data/3-final/` | End-point data products (native R format only). |
+#' | `output/` | All data products intended for use outside R. |
+#' | `scripts/` | All script files. |
 #'
 #' @param dir The project root directory. Defaults to the current working
 #' directory.
