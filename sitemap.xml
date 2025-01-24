@@ -1,7 +1,11 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://eliotmonaco.github.io/setmeup/404.html</loc></url>
+<url><loc>https://eliotmonaco.github.io/setmeup/LICENSE-text.html</loc></url>
+<url><loc>https://eliotmonaco.github.io/setmeup/LICENSE.html</loc></url>
 <url><loc>https://eliotmonaco.github.io/setmeup/authors.html</loc></url>
 <url><loc>https://eliotmonaco.github.io/setmeup/index.html</loc></url>
 <url><loc>https://eliotmonaco.github.io/setmeup/reference/index.html</loc></url>
+<url><loc>https://eliotmonaco.github.io/setmeup/reference/round_ties_away.html</loc></url>
+<url><loc>https://eliotmonaco.github.io/setmeup/reference/setup_project_structure.html</loc></url>
 </urlset>
 
