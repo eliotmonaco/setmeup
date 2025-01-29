@@ -1,0 +1,25 @@
+---
+title: NB1
+subtitle:
+author:
+  - name:
+    affiliation:
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Purpose
+
+What is this script for?
+
+# Setup environment and import data
+
+```{r}
+library()
+```
+
+# Analysis
