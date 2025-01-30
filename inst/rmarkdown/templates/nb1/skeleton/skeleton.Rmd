@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 What is this script for?
 
-# Setup environment and import data
+# Set up environment and import data
 
 ```{r}
 library()
