@@ -58,8 +58,8 @@
 round_ties_away <- function(x, digits = 0) {
   if (
     !is.numeric(digits) ||
-    length(digits) != 1 ||
-    digits != round(digits) # check that `digits` is pos or neg integer
+      length(digits) != 1 ||
+      digits != round(digits) # check that `digits` is pos or neg integer
   ) {
     stop("`digits` must be a single integer")
   }
