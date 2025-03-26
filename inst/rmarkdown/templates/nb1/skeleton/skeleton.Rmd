@@ -8,18 +8,27 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: html_notebook
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # Purpose
 
 What is this script for?
 
 # Set up environment and import data
 
+```{r setup}
+# knitr::opts_chunk$set(
+#   fig.width = 9,
+#   fig.height = 4
+# )
+```
+
+```{r message=FALSE}
+library(tidyverse)
+```
+ 
+Import data.
+
 ```{r}
-library()
+# add data here
 ```
 
 # Analysis
