@@ -22,3 +22,16 @@ test_that("replacements", {
   )
   expect_equal(act, exp)
 })
+
+test_that("contains ordinals", {
+  s <- c(
+    "1st 2nd 3rd 4th 5th 11th 12th 13th 14th 20th 21st 32nd 43rd 54th 900th",
+    "1and2"
+  )
+  act <- fix_colnames(s)
+  exp <- c(
+    "1st_2nd_3rd_4th_5th_11th_12th_13th_14th_20th_21st_32nd_43rd_54th_900th",
+    "1_and_2"
+  )
+  expect_equal(act, exp)
+})
