@@ -10,21 +10,27 @@
 coverage](https://codecov.io/gh/eliotmonaco/setmeup/graph/badge.svg)](https://app.codecov.io/gh/eliotmonaco/setmeup)
 <!-- badges: end -->
 
-The goal of setmeup is to …
+setmeup has various functions to expedite reproducible data analysis
+projects.
 
 ## Installation
 
-You can install the development version of setmeup like so:
+Install from GitHub:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+remotes::install_github("eliotmonaco/setmeup")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Set up a data analysis project fast with `setup_project_structure()` and
+`use_rmd_template()`. First, create your new project. Then run this:
 
 ``` r
 library(setmeup)
-## basic example code
+setup_project_structure()
+use_rmd_template("analysis")
 ```
+
+These functions 1) create a simple and logical internal project
+structure, and 2) copy an R Notebook template ready for an analysis.
