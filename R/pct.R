@@ -1,5 +1,6 @@
 #' Calculate percentage
 #'
+#' @description
 #' Calculate a percentage using the formula \eqn{n * 100 / total}. Rounding is
 #' done by [round_ties_away()].
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/assign-id.R
 \name{assign_id}
 \alias{assign_id}
-\title{Assign a sequential ID variable to a dataframe}
+\title{Assign ID values to distinct dataframe rows}
 \usage{
 assign_id(
   df,
@@ -37,8 +37,8 @@ position in \code{df}.}
 A dataframe.
 }
 \description{
-This function assigns a sequential ID number to distinct rows in a dataframe
-based on the variables selected in \code{vars}.
+Assign sequential ID values to distinct dataframe rows based on the variables
+specified in \code{vars}.
 }
 \examples{
 df <- data.frame(

@@ -7,17 +7,18 @@
 setup_project_structure(dir = getwd())
 }
 \arguments{
-\item{dir}{The project root directory. Defaults to the current working
-directory.}
+\item{dir}{The project root directory (defaults to the current working
+directory).}
 }
 \value{
 \code{dir} (invisibly).
 }
 \description{
-This function creates subdirectories for a data project.
+Create subdirectories for a data analysis project.
 }
 \details{
-The following subdirectories are created under \verb{my-proj/}:
+This function creates the following subdirectories under the hypothetical
+project root directory \verb{my-proj/}:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{my-proj/
 |--- data/
@@ -27,11 +28,11 @@ The following subdirectories are created under \verb{my-proj/}:
 |--- output/
 |--- scripts/
 }\if{html}{\out{</div>}}\tabular{ll}{
-   Folder \tab Use \cr
-   \verb{data/1-source/} \tab Unmodified source data originating outside the project. \cr
-   \verb{data/2-aux/} \tab Intermediate data created within the project or auxiliary data from outside the project. In other words, anything that isn't source or final data. \cr
-   \verb{data/3-final/} \tab End-point data products (native R format only). \cr
-   \verb{output/} \tab All data products intended for use outside R. \cr
+   Folder \tab Intended content \cr
+   \verb{data/1-source/} \tab Unmodified source data originating outside of the project. \cr
+   \verb{data/2-aux/} \tab Intermediate data created within the project and/or anything not considered to be source or final data. \cr
+   \verb{data/3-final/} \tab Final data products in native R formats only. \cr
+   \verb{output/} \tab Final data products for consumption outside R. \cr
    \verb{scripts/} \tab All script files. \cr
 }
 }

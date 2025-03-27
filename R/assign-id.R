@@ -1,8 +1,8 @@
-#' Assign a sequential ID variable to a dataframe
+#' Assign ID values to distinct dataframe rows
 #'
 #' @description
-#' This function assigns a sequential ID number to distinct rows in a dataframe
-#' based on the variables selected in `vars`.
+#' Assign sequential ID values to distinct dataframe rows based on the variables
+#' specified in `vars`.
 #'
 #' @param df A dataframe.
 #' @param id_name A name for the new ID variable.
