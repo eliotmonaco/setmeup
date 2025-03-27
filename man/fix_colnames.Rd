@@ -16,18 +16,18 @@ A character vector the same length as \code{x}.
 Change column names to snake case.
 }
 \examples{
-s <- paste(
-  "Some words and stuff plus punctuation",
-  ". , : ; ? ! / * @ # - _ \" ' [ ] { } ( )",
-  "And symbols",
-  "| ` = + ^ ~ < > $",
-  "And these",
-  "\% &",
+cols <- paste(
+  "Messy/Unpleasant Column Names",
   "checkThisCamelCase",
   "Letters674next0to827654digits4",
-  "THIS/THAT"
+  "ordinals 1st 32nd 43rd 54th 900th",
+  "this&THAT",
+  "THIS/that",
+  " Hello, World!!!",
+  "hyphenated-words",
+  "words in 'quotes' or even \"quotes\""
 )
 
-fix_colnames(s)
+fix_colnames(cols)
 
 }
