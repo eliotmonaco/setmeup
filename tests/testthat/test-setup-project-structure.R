@@ -1,4 +1,4 @@
-test_that("fn works", {
+test_that("dirs created", {
   withr::with_tempdir({
     dir.create("my-proj")
     fn_return <- expect_invisible(setup_project_structure("my-proj"))

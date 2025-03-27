@@ -4,24 +4,24 @@
 \alias{use_rmd_template}
 \title{Use an RMD template from this package}
 \usage{
-use_rmd_template(filename, template)
+use_rmd_template(filename, template = "nb1")
 }
 \arguments{
 \item{filename}{The file name for the script.}
 
-\item{template}{The name of the RMD template.}
+\item{template}{The name of the RMD template (defaults to \code{"nb1"}).}
 }
 \value{
 \code{filename} (invisibly).
 }
 \description{
-This is a wrapper for \code{\link[rmarkdown:draft]{rmarkdown::draft()}}. It copies the contents of the
-specified template folder into the \verb{scripts/} directory (created by
+This is a wrapper for \code{\link[rmarkdown:draft]{rmarkdown::draft()}}. It copies the relevant files for
+the specified RMD template into the \verb{scripts/} folder (created by
 \code{\link[=setup_project_structure]{setup_project_structure()}}).
 }
 \examples{
 \dontrun{
-use_rmd_template(filename = "my-analysis.rmd", template = "nb1")
+use_rmd_template(filename = "my-analysis")
 }
 
 }
