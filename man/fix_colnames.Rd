@@ -13,17 +13,17 @@ fix_colnames(x)
 A character vector the same length as \code{x}.
 }
 \description{
-Change column names to snake case.
+Change column names to snake case and remove or replace non-word characters.
 }
 \examples{
-cols <- paste(
+cols <- c(
   "Messy/Unpleasant Column Names",
   "checkThisCamelCase",
   "Letters674next0to827654digits4",
-  "ordinals 1st 32nd 43rd 54th 900th",
+  "ordinal numbers: 1st 32nd 43rd 54th 900th",
   "this&THAT",
   "THIS/that",
-  " Hello, World!!!",
+  " Hello, World!!! ",
   "hyphenated-words",
   "words in 'quotes' or even \"quotes\""
 )

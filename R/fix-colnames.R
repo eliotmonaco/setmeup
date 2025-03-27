@@ -1,7 +1,7 @@
 #' Fix column names
 #'
 #' @description
-#' Change column names to snake case.
+#' Change column names to snake case and remove or replace non-word characters.
 #'
 #' @param x A vector of column names.
 #'
@@ -9,14 +9,14 @@
 #' @export
 #'
 #' @examples
-#' cols <- paste(
+#' cols <- c(
 #'   "Messy/Unpleasant Column Names",
 #'   "checkThisCamelCase",
 #'   "Letters674next0to827654digits4",
-#'   "ordinals 1st 32nd 43rd 54th 900th",
+#'   "ordinal numbers: 1st 32nd 43rd 54th 900th",
 #'   "this&THAT",
 #'   "THIS/that",
-#'   " Hello, World!!!",
+#'   " Hello, World!!! ",
 #'   "hyphenated-words",
 #'   "words in 'quotes' or even \"quotes\""
 #' )
@@ -39,7 +39,7 @@ fix_colnames <- function(x) {
     "([2-9]?2)_(nd_|nd\\b)", # 2nd, 22nd...92nd
     "([2-9]?3)_(rd_|rd\\b)", # 3rd, 23rd...93rd
     "([1-9]?[4-9])_(th_|th\\b)", # 4th-9th, 14th-19th...94th-99th
-    "([1-9]0{0,10}0)_(th_|th\\b)" # 10th...90th, 1-90...0th
+    "([1-9]0{0,10}0)_(th_|th\\b)" # 10th...900000000000th by 10s
   )
 
   x <- x |>
