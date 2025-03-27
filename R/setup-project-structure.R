@@ -7,7 +7,7 @@
 #' This function creates the following subdirectories under the hypothetical
 #' project root directory `my-proj/`:
 #'
-#' ```
+#' ```{verbatim}
 #' my-proj/
 #' |--- data/
 #'      |--- 1-source/
@@ -17,13 +17,13 @@
 #' |--- scripts/
 #' ```
 #'
-#' | Folder | Intended content |
-#' |---|---|
+#' | Folder           | Intended content                                           |
+#' |------------------|------------------------------------------------------------|
 #' | `data/1-source/` | Unmodified source data originating outside of the project. |
-#' | `data/2-aux/` | Intermediate data created within the project and/or anything not considered to be source or final data. |
-#' | `data/3-final/` | Final data products in native R formats only. |
-#' | `output/` | Final data products for consumption outside R. |
-#' | `scripts/` | All script files. |
+#' | `data/2-aux/`    | Intermediate data created within the project and/or<br>anything not considered to be source or final data. |
+#' | `data/3-final/`  | Final data products in native R formats only.              |
+#' | `output/`        | Final data products for consumption outside R.             |
+#' | `scripts/`       | All script files.                                          |
 #'
 #' @param dir The project root directory (defaults to the current working
 #' directory).

@@ -20,7 +20,7 @@ Create subdirectories for a data analysis project.
 This function creates the following subdirectories under the hypothetical
 project root directory \verb{my-proj/}:
 
-\if{html}{\out{<div class="sourceCode">}}\preformatted{my-proj/
+\if{html}{\out{<div class="sourceCode default">}}\preformatted{my-proj/
 |--- data/
      |--- 1-source/
      |--- 2-aux/
@@ -30,7 +30,7 @@ project root directory \verb{my-proj/}:
 }\if{html}{\out{</div>}}\tabular{ll}{
    Folder \tab Intended content \cr
    \verb{data/1-source/} \tab Unmodified source data originating outside of the project. \cr
-   \verb{data/2-aux/} \tab Intermediate data created within the project and/or anything not considered to be source or final data. \cr
+   \verb{data/2-aux/} \tab Intermediate data created within the project and/or\if{html}{\out{<br>}}anything not considered to be source or final data. \cr
    \verb{data/3-final/} \tab Final data products in native R formats only. \cr
    \verb{output/} \tab Final data products for consumption outside R. \cr
    \verb{scripts/} \tab All script files. \cr
