@@ -20,22 +20,26 @@ Any number of date vectors can be checked. Elements at the same index are
 compared. \code{NA}s are ignored.
 }
 \examples{
-dates <- seq.Date(
-  as.Date("2023-01-01", "\%Y-\%m-\%d"),
-  as.Date("2023-12-31", "\%Y-\%m-\%d"),
-  by = "day"
-)
-dates <- c(dates, rep(NA, times = 10))
-
-n_rows <- 500
-
 df <- data.frame(
-  d1 = sample(dates, n_rows, replace = TRUE),
-  d2 = sample(dates, n_rows, replace = TRUE),
-  d3 = sample(dates, n_rows, replace = TRUE),
-  d4 = sample(dates, n_rows, replace = TRUE)
+  d1 = seq.Date(
+    as.Date("1980-01-01"),
+    as.Date("1980-12-31"),
+    by = "month"
+  ),
+  d2 = seq.Date(
+    as.Date("1990-01-01"),
+    as.Date("1990-12-31"),
+    by = "month"
+  ),
+  d3 = seq.Date(
+    as.Date("1985-01-01"),
+    as.Date("1996-01-01"),
+    by = "year"
+  )
 )
 
-df$ordered <- check_date_order(df$d1, df$d2, df$d3, df$d4)
+df$ordered <- check_date_order(df$d1, df$d2, df$d3)
+
+df
 
 }
