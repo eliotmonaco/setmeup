@@ -1,10 +1,10 @@
 Package: setmeup
-Title: Helpful Coding Tools
+Title: Set up reproducible data analysis projects
 Version: 0.0.0.9000
 Authors@R: 
     person("Eliot", "Monaco", , "eliotmonaco@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5982-5854"))
-Description: This package adds helpful tools for projects and coding in R.
+Description: This package has tools to expedite reproducible data analysis projects.
 License: MIT + file LICENSE
 URL: https://eliotmonaco.github.io/setmeup/
 Suggests: 
