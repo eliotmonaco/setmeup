@@ -48,9 +48,7 @@ done by <code><a href="round_ties_away.html">round_ties_away()</a></code>.</p>
 
 
 <dl><dt id="arg-n-total">n, total<a class="anchor" aria-label="anchor" href="#arg-n-total"></a></dt>
-<dd><p>Numeric vectors, or objects that can be coerced to numeric
-vectors. If the lengths are unequal, the shorter vector must have length of 1
-for it to be recycled.</p></dd>
+<dd><p>Numeric vectors of equal length or with one of length 1.</p></dd>
 
 
 <dt id="arg-digits">digits<a class="anchor" aria-label="anchor" href="#arg-digits"></a></dt>
@@ -66,10 +64,10 @@ same argument in <code><a href="round_ties_away.html">round_ties_away()</a></cod
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">200</span><span class="op">:</span><span class="fl">300</span>, size <span class="op">=</span> <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">200</span>, by <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">pct</span><span class="op">(</span><span class="va">x</span>, <span class="fl">300</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 69.33 72.67 71.67 78.00 78.67 98.33 93.00 75.67 87.67 99.67</span>
+<span class="r-in"><span><span class="fu">pct</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fl">100</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  1.00  4.58  6.40  7.81  9.00 10.05 11.00 11.87 12.69 13.45</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

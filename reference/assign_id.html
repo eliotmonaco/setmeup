@@ -42,9 +42,9 @@ specified in <code>vars</code>.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">assign_id</span><span class="op">(</span></span>
 <span>  <span class="va">df</span>,</span>
+<span>  <span class="va">vars</span>,</span>
 <span>  <span class="va">id_name</span>,</span>
 <span>  prefix <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>,</span>
 <span>  seq_start <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  digits <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  promote <span class="op">=</span> <span class="cn">TRUE</span></span>
@@ -59,106 +59,67 @@ specified in <code>vars</code>.</p>
 <dd><p>A dataframe.</p></dd>
 
 
+<dt id="arg-vars">vars<a class="anchor" aria-label="anchor" href="#arg-vars"></a></dt>
+<dd><p>Variables for determining row uniqueness.</p></dd>
+
+
 <dt id="arg-id-name">id_name<a class="anchor" aria-label="anchor" href="#arg-id-name"></a></dt>
-<dd><p>A name for the new ID variable.</p></dd>
+<dd><p>The name for the ID variable.</p></dd>
 
 
 <dt id="arg-prefix">prefix<a class="anchor" aria-label="anchor" href="#arg-prefix"></a></dt>
-<dd><p>An optional prefix of characters to add to all ID values.</p></dd>
-
-
-<dt id="arg-vars">vars<a class="anchor" aria-label="anchor" href="#arg-vars"></a></dt>
-<dd><p>The variable names whose unique values the new ID will be based
-on. Defaults to <code>colnames(df)</code>.</p></dd>
+<dd><p>An optional prefix added to all ID values.</p></dd>
 
 
 <dt id="arg-seq-start">seq_start<a class="anchor" aria-label="anchor" href="#arg-seq-start"></a></dt>
-<dd><p>An integer for the beginning of the ID sequence. Defaults to
-<code>1</code>.</p></dd>
+<dd><p>The start number of the ID sequence.</p></dd>
 
 
 <dt id="arg-digits">digits<a class="anchor" aria-label="anchor" href="#arg-digits"></a></dt>
-<dd><p>An integer for the number of digits in the ID (including
-leading zeros). Defaults to <code>nchar(nrow(df) + seq_start)</code>.</p></dd>
+<dd><p>The number of digits in the ID, including leading zeros. This
+is used when larger than the minimum required.</p></dd>
 
 
 <dt id="arg-promote">promote<a class="anchor" aria-label="anchor" href="#arg-promote"></a></dt>
-<dd><p>A logical value. If <code>TRUE</code>, move the ID column to the first
-position in <code>df</code>.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, the ID variable is the first column in the
+output.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A dataframe.</p>
     </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Row names are not preserved.</p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  row_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"r"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">24</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  c <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  var1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>, <span class="fl">4</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  var2 <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">df</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    row_id a b     c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     r 1 a 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     r 2 b 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     r 3 c 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     r 4 a 2 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     r 5 b 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     r 6 c 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7     r 7 a 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8     r 8 b 2 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9     r 9 c 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10   r 10 a 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11   r 11 b 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12   r 12 c 2 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13   r 13 a 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14   r 14 b 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15   r 15 c 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16   r 16 a 2 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17   r 17 b 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18   r 18 c 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19   r 19 a 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20   r 20 b 2 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21   r 21 c 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22   r 22 a 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23   r 23 b 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24   r 24 c 2 FALSE</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">assign_id</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="va">df</span>,</span></span>
 <span class="r-in"><span>  id_name <span class="op">=</span> <span class="st">"id"</span>,</span></span>
 <span class="r-in"><span>  prefix <span class="op">=</span> <span class="st">"id"</span>,</span></span>
-<span class="r-in"><span>  vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      id row_id a b     c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  id01    r 1 a 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  id02    r 2 b 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 id03    r 3 c 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  id04    r 4 a 2 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 id05    r 5 b 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 id06    r 6 c 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  id07    r 7 a 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 id08    r 8 b 2 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 id09    r 9 c 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  id10   r 10 a 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 id11   r 11 b 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 id12   r 12 c 2 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  id01   r 13 a 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 id02   r 14 b 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 id03   r 15 c 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  id04   r 16 a 2 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 id05   r 17 b 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 id06   r 18 c 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  id07   r 19 a 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 id08   r 20 b 2 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 id09   r 21 c 1  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  id10   r 22 a 1 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 id11   r 23 b 2  TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 id12   r 24 c 2 FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     id var1 var2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  id1    A    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  id2    B    2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  id3    C    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  id4    A    2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  id5    B    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  id6    C    2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  id1    A    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  id2    B    2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  id3    C    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 id4    A    2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 id5    B    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 id6    C    2</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
