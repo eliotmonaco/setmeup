@@ -7,9 +7,7 @@
 pct(n, total, digits = 1)
 }
 \arguments{
-\item{n, total}{Numeric vectors, or objects that can be coerced to numeric
-vectors. If the lengths are unequal, the shorter vector must have length of 1
-for it to be recycled.}
+\item{n, total}{Numeric vectors of equal length or with one of length 1.}
 
 \item{digits}{An integer indicating the number of decimal (when positive) or
 whole number (when zero or negative) places to round the output. (See the
@@ -23,8 +21,8 @@ Calculate a percentage using the formula \eqn{n * 100 / total}. Rounding is
 done by \code{\link[=round_ties_away]{round_ties_away()}}.
 }
 \examples{
-x <- sample(200:300, size = 10, replace = TRUE)
+x <- seq(1, 200, by = 20)
 
-pct(x, 300, digits = 2)
+pct(sqrt(x), 100, digits = 2)
 
 }

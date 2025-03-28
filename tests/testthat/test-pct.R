@@ -1,4 +1,4 @@
-test_that("numeric vector input", {
+test_that("numeric input", {
   act <- pct(
     n = c(0, 1, 2, 3, 4, 5, 6, 7, 8),
     total = c(8, 7, 6, 5, 4, 3, 2, 1, 0),
@@ -8,7 +8,7 @@ test_that("numeric vector input", {
   expect_equal(act, exp)
 })
 
-test_that("lists containing multiple classes", {
+test_that("lists of various classes", {
   act <- suppressWarnings(pct(
     n = list(0, 1, "2", 3, 4, "5", 6, "A", TRUE),
     total = list(FALSE, "B", "6", 5, "4", 3, 2, 1, 0)
@@ -17,7 +17,7 @@ test_that("lists containing multiple classes", {
   expect_equal(act, exp)
 })
 
-test_that("vectors of unequal length", {
+test_that("length of `total` is 1", {
   act <- pct(
     n = c(1, 2, 3, 4),
     total = 12
@@ -26,15 +26,24 @@ test_that("vectors of unequal length", {
   expect_equal(act, exp)
 })
 
-test_that("vectors of unequal length (error)", {
+test_that("length of `n` is 1", {
+  act <- pct(
+    n = 12,
+    total = c(1, 2, 3, 4)
+  )
+  exp <- c(1200, 600, 400, 300)
+  expect_equal(act, exp)
+})
+
+test_that("unequal length error", {
   expect_error(
     pct(
       n = c(1, 2, 3, 4),
       total = c(1, 2)
     ),
-    paste0(
-      "When the lengths of `n` & `total` are unequal, the shorter vector must ",
-      "have length of 1 to be recycled"
+    paste(
+      "The lengths of `n` & `total` must be equal",
+      "or one must be of length 1"
     )
   )
 })
