@@ -10,8 +10,7 @@
 coverage](https://codecov.io/gh/eliotmonaco/setmeup/graph/badge.svg)](https://app.codecov.io/gh/eliotmonaco/setmeup)
 <!-- badges: end -->
 
-setmeup has various functions to expedite reproducible data analysis
-projects.
+setmeup has tools to expedite reproducible data analysis projects.
 
 ## Installation
 
@@ -24,7 +23,7 @@ remotes::install_github("eliotmonaco/setmeup")
 ## Example
 
 Set up a data analysis project fast with `setup_project_structure()` and
-`use_rmd_template()`. First, create your new project. Then run this:
+`use_rmd_template()`. First, create a new project. Then run this:
 
 ``` r
 library(setmeup)
@@ -32,5 +31,7 @@ setup_project_structure()
 use_rmd_template("analysis")
 ```
 
-These functions 1) create a simple and logical internal project
-structure, and 2) copy an R Notebook template ready for an analysis.
+These functions
+
+1.  Create a simple and logical internal project structure
+2.  Set up an R Notebook template ready for an analysis
