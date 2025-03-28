@@ -21,6 +21,19 @@ This is a wrapper for \code{\link[rmarkdown:draft]{rmarkdown::draft()}}. By defa
 relevant files for the "nb1" RMD template into the \verb{scripts/} folder (created
 by \code{\link[=setup_project_structure]{setup_project_structure()}}).
 }
+\details{
+The R Notebook template nb1 has three related files.
+\itemize{
+\item \verb{_output.yml} contains the YAML options under \code{html_notebook}. These will
+be shared by any markdown documents in the same directory (see \href{https://bookdown.org/yihui/rmarkdown/html-document.html#shared-options}{Shared Options, R Markdown: The Definitive Guide}).
+\item \code{render.R} contains a call to \code{\link[rmarkdown:render]{rmarkdown::render()}} that's prepopulated to
+execute the notebook and save the \code{.nb.html} report in the project's
+\verb{output/} directory (created by \code{\link[=setup_project_structure]{setup_project_structure()}}).
+\item \code{skeleton.Rmd} is the R Notebook file. When \code{use_rmd_template()} is
+executed, the file will be saved with the name specified in the \code{filename}
+argument.
+}
+}
 \examples{
 \dontrun{
 use_rmd_template("my-analysis")

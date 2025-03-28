@@ -1,4 +1,4 @@
-rmd_name <- ""
+rmd_name <- "" # RMD file name goes here
 
 rmarkdown::render(
   input = paste0("scripts/", rmd_name, ".rmd"),
