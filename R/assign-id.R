@@ -4,43 +4,40 @@
 #' Assign sequential ID values to distinct dataframe rows based on the variables
 #' specified in `vars`.
 #'
+#' @details
+#' Row names are not preserved.
+#'
 #' @param df A dataframe.
-#' @param id_name A name for the new ID variable.
-#' @param prefix An optional prefix of characters to add to all ID values.
-#' @param vars The variable names whose unique values the new ID will be based
-#' on. Defaults to `colnames(df)`.
-#' @param seq_start An integer for the beginning of the ID sequence. Defaults to
-#' `1`.
-#' @param digits An integer for the number of digits in the ID (including
-#' leading zeros). Defaults to `nchar(nrow(df) + seq_start)`.
-#' @param promote A logical value. If `TRUE`, move the ID column to the first
-#' position in `df`.
+#' @param vars Variables for determining row uniqueness.
+#' @param id_name The name for the ID variable.
+#' @param prefix An optional prefix added to all ID values.
+#' @param seq_start The start number of the ID sequence.
+#' @param digits The number of digits in the ID, including leading zeros. This
+#' is used when larger than the minimum required.
+#' @param promote Logical. If `TRUE`, the ID variable is the first column in the
+#' output.
 #'
 #' @return A dataframe.
 #' @export
 #'
 #' @examples
 #' df <- data.frame(
-#'   row_id = paste("r", 1:24),
-#'   a = rep(c("a", "b", "c"), times = 8),
-#'   b = c(1, 1, 2, 2),
-#'   c = c(TRUE, FALSE)
+#'   var1 = rep(LETTERS[1:3], 4),
+#'   var2 = 1:2
 #' )
-#'
-#' df
 #'
 #' assign_id(
 #'   df,
 #'   id_name = "id",
 #'   prefix = "id",
-#'   vars = c("a", "b", "c")
+#'   vars = colnames(df)
 #' )
 #'
 assign_id <- function(
     df,
+    vars,
     id_name,
     prefix = NULL,
-    vars = colnames(df),
     seq_start = 1,
     digits = NULL,
     promote = TRUE) {
@@ -55,25 +52,23 @@ assign_id <- function(
     ))
   }
 
-  # `df` row/col info
-  cn_src <- colnames(df)
-  rn_src <- rownames(df)
-
-  # Find the minimum number of digits for the ID value
-  digits_min <- nchar(nrow(df) + seq_start)
-
-  # If `digits` is given a value less than `digits_min`, use `digits_min`
-  if (is.null(digits) || digits < digits_min) {
-    digits <- digits_min
+  if (!as.numeric(seq_start) > 0) {
+    stop("`seq_start` must be a positive integer")
   }
 
-  # Deduplicate rows by variables names in `vars`
+  cols_src <- colnames(df)
+
+  # Deduplicate rows by `vars`
   df_distinct <- df[!duplicated(df[, vars]), vars, drop = FALSE]
+
+  # Find the highest ID number and its character count
+  id_max <- nrow(df_distinct) + seq_start - 1
+  char_min <- nchar(id_max)
 
   #  Add sequential ID numbers to distinct rows
   df_distinct[[id_name]] <- formatC(
-    x = seq_start:(seq_start + nrow(df_distinct) - 1),
-    width = digits,
+    x = seq_start:id_max,
+    width = max(digits, char_min),
     flag = "0"
   )
 
@@ -87,16 +82,18 @@ assign_id <- function(
   df[[row_order]] <- 1:nrow(df)
 
   # Join IDs from `df_distinct` to `df`
-  # Note: `merge()` converts `df` to data.frame and shuffles row names
   df <- merge(x = df, y = df_distinct, by = vars)
 
   # Restore row and column order
   df <- df[order(df[[row_order]]), , drop = FALSE]
-  df <- df[, c(cn_src, id_name)]
+  df <- df[, c(cols_src, id_name)]
 
   if (promote) {
-    df <- df[, c(id_name, cn_src)]
+    df <- df[, c(id_name, cols_src)]
   }
+
+  # Reset row names reordered by `merge()`
+  rownames(df) <- 1:nrow(df)
 
   df
 }

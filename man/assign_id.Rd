@@ -6,9 +6,9 @@
 \usage{
 assign_id(
   df,
+  vars,
   id_name,
   prefix = NULL,
-  vars = colnames(df),
   seq_start = 1,
   digits = NULL,
   promote = TRUE
@@ -17,21 +17,19 @@ assign_id(
 \arguments{
 \item{df}{A dataframe.}
 
-\item{id_name}{A name for the new ID variable.}
+\item{vars}{Variables for determining row uniqueness.}
 
-\item{prefix}{An optional prefix of characters to add to all ID values.}
+\item{id_name}{The name for the ID variable.}
 
-\item{vars}{The variable names whose unique values the new ID will be based
-on. Defaults to \code{colnames(df)}.}
+\item{prefix}{An optional prefix added to all ID values.}
 
-\item{seq_start}{An integer for the beginning of the ID sequence. Defaults to
-\code{1}.}
+\item{seq_start}{The start number of the ID sequence.}
 
-\item{digits}{An integer for the number of digits in the ID (including
-leading zeros). Defaults to \code{nchar(nrow(df) + seq_start)}.}
+\item{digits}{The number of digits in the ID, including leading zeros. This
+is used when larger than the minimum required.}
 
-\item{promote}{A logical value. If \code{TRUE}, move the ID column to the first
-position in \code{df}.}
+\item{promote}{Logical. If \code{TRUE}, the ID variable is the first column in the
+output.}
 }
 \value{
 A dataframe.
@@ -40,21 +38,20 @@ A dataframe.
 Assign sequential ID values to distinct dataframe rows based on the variables
 specified in \code{vars}.
 }
+\details{
+Row names are not preserved.
+}
 \examples{
 df <- data.frame(
-  row_id = paste("r", 1:24),
-  a = rep(c("a", "b", "c"), times = 8),
-  b = c(1, 1, 2, 2),
-  c = c(TRUE, FALSE)
+  var1 = rep(LETTERS[1:3], 4),
+  var2 = 1:2
 )
-
-df
 
 assign_id(
   df,
   id_name = "id",
   prefix = "id",
-  vars = c("a", "b", "c")
+  vars = colnames(df)
 )
 
 }
