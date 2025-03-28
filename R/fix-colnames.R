@@ -4,6 +4,7 @@
 #' Change column names to snake case and remove or replace non-word characters.
 #'
 #' @param x A vector of column names.
+#' @param n_pfx A prefix added to column names starting with a digit.
 #'
 #' @returns A character vector the same length as `x`.
 #' @export
@@ -18,12 +19,13 @@
 #'   "THIS/that",
 #'   " Hello, World!!! ",
 #'   "hyphenated-words",
-#'   "words in 'quotes' or even \"quotes\""
+#'   "words in 'quotes' or even \"quotes\"",
+#'   "1"
 #' )
 #'
-#' fix_colnames(cols)
+#' fix_colnames(cols, n_pfx = "n_")
 #'
-fix_colnames <- function(x) {
+fix_colnames <- function(x, n_pfx = NULL) {
   chars1 <- paste(
     "\\.", ",", ":", ";", "\\?", "\\!", "\\*", "@", "#", "-",
     "\\[", "\\]", "\\{", "\\}", "\\(", "\\)",
@@ -66,6 +68,12 @@ fix_colnames <- function(x) {
   for (i in 1:length(ordinals)) {
     x <- x |>
       gsub(pattern = ordinals[i], replacement = "\\1\\2", perl = TRUE)
+  }
+
+  # Add `n_pfx`
+  if (!is.null(n_pfx)) {
+    x <- x |>
+      gsub(pattern = "(^\\d)", replacement = paste0(n_pfx, "\\1"), perl = TRUE)
   }
 
   x

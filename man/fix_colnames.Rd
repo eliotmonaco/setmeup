@@ -4,10 +4,12 @@
 \alias{fix_colnames}
 \title{Fix column names}
 \usage{
-fix_colnames(x)
+fix_colnames(x, n_pfx = NULL)
 }
 \arguments{
 \item{x}{A vector of column names.}
+
+\item{n_pfx}{A prefix added to column names starting with a digit.}
 }
 \value{
 A character vector the same length as \code{x}.
@@ -25,9 +27,10 @@ cols <- c(
   "THIS/that",
   " Hello, World!!! ",
   "hyphenated-words",
-  "words in 'quotes' or even \"quotes\""
+  "words in 'quotes' or even \"quotes\"",
+  "1"
 )
 
-fix_colnames(cols)
+fix_colnames(cols, n_pfx = "n_")
 
 }

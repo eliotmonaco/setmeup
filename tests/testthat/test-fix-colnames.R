@@ -57,3 +57,17 @@ test_that("punctuation", {
   )
   expect_equal(act, exp)
 })
+
+test_that("`n_pfx` char", {
+  s <- c("1", "2two", "three")
+  act <- fix_colnames(s, n_pfx = "n_")
+  exp <- c("n_1", "n_2_two", "three")
+  expect_equal(act, exp)
+})
+
+test_that("`n_pfx` num", {
+  s <- 1:2
+  act <- fix_colnames(s, n_pfx = "n_")
+  exp <- c("n_1", "n_2")
+  expect_equal(act, exp)
+})
