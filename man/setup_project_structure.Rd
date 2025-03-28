@@ -17,17 +17,8 @@ directory).}
 Create subdirectories for a data analysis project.
 }
 \details{
-This function creates the following subdirectories under the hypothetical
-project root directory \verb{my-proj/}:
-
-\if{html}{\out{<div class="sourceCode default">}}\preformatted{my-proj/
-|--- data/
-     |--- 1-source/
-     |--- 2-aux/
-     |--- 3-final/
-|--- output/
-|--- scripts/
-}\if{html}{\out{</div>}}\tabular{ll}{
+This function creates the following subdirectories under the project root
+directory \code{dir}:\tabular{ll}{
    Folder \tab Intended content \cr
    \verb{data/1-source/} \tab Unmodified source data originating outside of the project. \cr
    \verb{data/2-aux/} \tab Intermediate data created within the project and/or\if{html}{\out{<br>}}anything not considered to be source or final data. \cr

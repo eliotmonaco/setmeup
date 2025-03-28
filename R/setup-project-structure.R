@@ -4,18 +4,8 @@
 #' Create subdirectories for a data analysis project.
 #'
 #' @details
-#' This function creates the following subdirectories under the hypothetical
-#' project root directory `my-proj/`:
-#'
-#' ```{verbatim}
-#' my-proj/
-#' |--- data/
-#'      |--- 1-source/
-#'      |--- 2-aux/
-#'      |--- 3-final/
-#' |--- output/
-#' |--- scripts/
-#' ```
+#' This function creates the following subdirectories under the project root
+#' directory `dir`:
 #'
 #' | Folder           | Intended content                                           |
 #' |------------------|------------------------------------------------------------|
