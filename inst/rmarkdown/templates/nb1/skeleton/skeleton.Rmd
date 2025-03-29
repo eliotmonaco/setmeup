@@ -25,10 +25,19 @@ What is this script for?
 library(tidyverse)
 ```
  
-Import data.
+```{r}
+# import data
+```
+
+# Prep data
 
 ```{r}
-# add data here
+# prep/configure/validate data
 ```
 
 # Analysis
+
+```{r}
+# analyze/summarize/plot data
+```
+
