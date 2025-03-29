@@ -6,7 +6,7 @@
 #' by [setup_project_structure()]).
 #'
 #' @details
-#' The R Notebook template nb1 has three related files.
+#' The R Notebook template "nb1" has three related files.
 #'
 #' - `_output.yml` contains the YAML options under `html_notebook`. These will
 #' be shared by any markdown documents in the same directory (see [Shared
@@ -21,8 +21,8 @@
 #' [sh]: https://bookdown.org/yihui/rmarkdown/html-document.html#shared-options
 #'
 #' @param filename The file name for the script.
-#' @param template The name of the RMD template (defaults to `"nb1"`).
-#' @param dir The destination directory (defaults to `"scripts"`).
+#' @param template The name of the RMD template.
+#' @param dir The destination directory.
 #'
 #' @returns `filename` (invisibly).
 #' @export
@@ -32,10 +32,17 @@
 #' use_rmd_template("my-analysis")
 #' }
 #'
-use_rmd_template <- function(filename, template = "nb1", dir = "scripts") {
+use_rmd_template <- function(
+    filename = "analysis",
+    template = "nb1",
+    dir = "scripts") {
   requireNamespace("rmarkdown", quietly = TRUE)
 
   dir <- sub("/$", "", dir)
+
+  if (!dir.exists(dir)) {
+    stop(paste0("Folder `", dir, "` not found"))
+  }
 
   rmarkdown::draft(
     file = paste(dir, filename, sep = "/"),

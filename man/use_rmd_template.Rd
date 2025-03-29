@@ -4,14 +4,14 @@
 \alias{use_rmd_template}
 \title{Use an RMD template from this package}
 \usage{
-use_rmd_template(filename, template = "nb1", dir = "scripts")
+use_rmd_template(filename = "analysis", template = "nb1", dir = "scripts")
 }
 \arguments{
 \item{filename}{The file name for the script.}
 
-\item{template}{The name of the RMD template (defaults to \code{"nb1"}).}
+\item{template}{The name of the RMD template.}
 
-\item{dir}{The destination directory (defaults to \code{"scripts"}).}
+\item{dir}{The destination directory.}
 }
 \value{
 \code{filename} (invisibly).
@@ -22,7 +22,7 @@ relevant files for the "nb1" RMD template into the \verb{scripts/} folder (creat
 by \code{\link[=setup_project_structure]{setup_project_structure()}}).
 }
 \details{
-The R Notebook template nb1 has three related files.
+The R Notebook template "nb1" has three related files.
 \itemize{
 \item \verb{_output.yml} contains the YAML options under \code{html_notebook}. These will
 be shared by any markdown documents in the same directory (see \href{https://bookdown.org/yihui/rmarkdown/html-document.html#shared-options}{Shared Options, R Markdown: The Definitive Guide}).
