@@ -28,7 +28,7 @@ Set up a data analysis project fast with `setup_project_structure()` and
 ``` r
 library(setmeup)
 setup_project_structure()
-use_rmd_template("analysis")
+use_rmd_template()
 ```
 
 These functions
