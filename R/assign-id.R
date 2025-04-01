@@ -56,17 +56,17 @@ assign_id <- function(
     stop("`seq_start` must be a positive integer")
   }
 
-  cols_src <- colnames(df)
+  cols <- colnames(df)
 
   # Deduplicate rows by `vars`
-  df_distinct <- df[!duplicated(df[, vars]), vars, drop = FALSE]
+  df2 <- df[!duplicated(df[, vars]), vars, drop = FALSE]
 
   # Find the highest ID number and its character count
-  id_max <- nrow(df_distinct) + seq_start - 1
+  id_max <- nrow(df2) + seq_start - 1
   char_min <- nchar(id_max)
 
-  #  Add sequential ID numbers to distinct rows
-  df_distinct[[id_name]] <- formatC(
+  # Add sequential ID numbers to distinct rows
+  df2[[id_name]] <- formatC(
     x = seq_start:id_max,
     width = max(digits, char_min),
     flag = "0"
@@ -74,22 +74,24 @@ assign_id <- function(
 
   # Add `prefix` to ID numbers
   if (!is.null(prefix)) {
-    df_distinct[[id_name]] <- paste0(prefix, df_distinct[[id_name]])
+    df2[[id_name]] <- paste0(prefix, df2[[id_name]])
   }
 
   # Create column to preserve original row order of `df`
-  row_order <- paste0("row_order_", gsub("\\s", "_", Sys.time()))
-  df[[row_order]] <- 1:nrow(df)
+  order_var <- paste("row_order", Sys.time()) |>
+    gsub(pattern = "\\s", replacement = "_")
 
-  # Join IDs from `df_distinct` to `df`
-  df <- merge(x = df, y = df_distinct, by = vars)
+  df[[order_var]] <- 1:nrow(df)
+
+  # Join IDs from `df2` to `df`
+  df <- merge(x = df, y = df2, by = vars)
 
   # Restore row and column order
-  df <- df[order(df[[row_order]]), , drop = FALSE]
-  df <- df[, c(cols_src, id_name)]
+  df <- df[order(df[[order_var]]), , drop = FALSE]
+  df <- df[, c(cols, id_name)]
 
   if (promote) {
-    df <- df[, c(id_name, cols_src)]
+    df <- df[, c(id_name, cols)]
   }
 
   # Reset row names reordered by `merge()`
