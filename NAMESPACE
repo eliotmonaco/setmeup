@@ -2,8 +2,8 @@
 
 export(assign_id)
 export(check_date_order)
+export(find_dupes)
 export(fix_colnames)
-export(keep_dupes)
 export(pct)
 export(round_ties_away)
 export(setup_project_structure)
