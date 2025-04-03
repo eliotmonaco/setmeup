@@ -70,3 +70,11 @@ test_that("`seq_start` error", {
     "`seq_start` must be a positive integer"
   )
 })
+
+test_that("wrong input type error", {
+  x <- "ID me"
+  expect_error(
+    assign_id(x, vars = "x", id_name = "id"),
+    "`df` must be a dataframe"
+  )
+})
