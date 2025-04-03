@@ -1,7 +1,7 @@
 #' Find duplicated rows
 #'
 #' @description
-#' Keep only the duplicated rows in a dataframe.
+#' Find the duplicated rows in a dataframe.
 #'
 #' @details
 #' The output is sorted with duplicate rows adjacent to each other. A `dupe_id`
@@ -11,17 +11,18 @@
 #' @param vars Variables whose values determine which rows are identified as
 #' duplicates.
 #'
-#' @returns A dataframe consisting of only duplicated rows.
+#' @returns A dataframe consisting of only duplicated rows, or `NULL` if no
+#' duplicates are found
 #' @export
 #'
 #' @examples
 #' df <- data.frame(
 #'   row_id = paste0("r", 1:12),
-#'   var1 = rep(LETTERS[1:4], 3),
-#'   var2 = c(1:4, 1, 12:14, 1:2, 23:24)
+#'   x = c(101:104, 101, 112:114, 101:102, 123:124),
+#'   y = rep(LETTERS[1:4], 3)
 #' )
 #'
-#' find_dupes(df, vars = c("var1", "var2"))
+#' find_dupes(df, vars = c("x", "y"))
 #'
 find_dupes <- function(df, vars) {
   if (!is.data.frame(df)) {
@@ -32,6 +33,11 @@ find_dupes <- function(df, vars) {
 
   # Get duplicated rows
   df2 <- df[duplicated(df[, vars]), vars, drop = FALSE]
+
+  if (nrow(df2) == 0) {
+    message("No duplicates found")
+    return(NULL)
+  }
 
   df2 <- unique(df2)
 

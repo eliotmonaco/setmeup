@@ -13,10 +13,11 @@ find_dupes(df, vars)
 duplicates.}
 }
 \value{
-A dataframe consisting of only duplicated rows.
+A dataframe consisting of only duplicated rows, or \code{NULL} if no
+duplicates are found
 }
 \description{
-Keep only the duplicated rows in a dataframe.
+Find the duplicated rows in a dataframe.
 }
 \details{
 The output is sorted with duplicate rows adjacent to each other. A \code{dupe_id}
@@ -25,10 +26,10 @@ variable is added which numbers each duplicate set.
 \examples{
 df <- data.frame(
   row_id = paste0("r", 1:12),
-  var1 = rep(LETTERS[1:4], 3),
-  var2 = c(1:4, 1, 12:14, 1:2, 23:24)
+  x = c(101:104, 101, 112:114, 101:102, 123:124),
+  y = rep(LETTERS[1:4], 3)
 )
 
-find_dupes(df, vars = c("var1", "var2"))
+find_dupes(df, vars = c("x", "y"))
 
 }
