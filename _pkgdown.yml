@@ -1,4 +1,19 @@
 url: https://eliotmonaco.github.io/setmeup/
 template:
   bootstrap: 5
+  light-switch: true
+
+reference:
+  - title: Project setup
+  - contents:
+    - setup_project_structure
+    - use_rmd_template
+  - title: Data analysis
+  - contents:
+    - assign_id
+    - find_dupes
+    - fix_colnames
+    - is_sorted
+    - pct
+    - round_ties_away
 
