@@ -1,7 +1,7 @@
-test_that("dirs created", {
+test_that("default dirs created", {
   withr::with_tempdir({
     dir.create("my-proj")
-    fn_return <- expect_invisible(setup_project_structure("my-proj"))
+    fn_return <- expect_invisible(setup_project_structure(root = "my-proj"))
     dirs_exist <- dir.exists(c(
       "my-proj/data",
       "my-proj/data/1-source",

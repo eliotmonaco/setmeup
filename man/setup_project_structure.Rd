@@ -4,28 +4,35 @@
 \alias{setup_project_structure}
 \title{Setup project structure}
 \usage{
-setup_project_structure(dir = getwd())
+setup_project_structure(
+  root = getwd(),
+  dirs = c("data/1-source", "data/2-aux", "data/3-final", "output", "scripts")
+)
 }
 \arguments{
-\item{dir}{The project root directory (defaults to the current working
+\item{root}{The project root directory (defaults to the current working
 directory).}
+
+\item{dirs}{The subdirectories to create, as a character vector. The defaults
+are described in the Details section.}
 }
 \value{
-\code{dir} (invisibly).
+\code{root} (invisibly).
 }
 \description{
-Create subdirectories for a data analysis project.
+Create subdirectories for an R project.
 }
 \details{
-This function creates the following subdirectories under the project root
-directory \code{dir}:\tabular{ll}{
-   Folder \tab Intended content \cr
-   \verb{data/1-source/} \tab Unmodified source data originating outside of the project. \cr
-   \verb{data/2-aux/} \tab Intermediate data created within the project and/or\if{html}{\out{<br>}}anything not considered to be source or final data. \cr
-   \verb{data/3-final/} \tab Final data products in native R formats only. \cr
-   \verb{output/} \tab Final data products for consumption outside R. \cr
-   \verb{scripts/} \tab All script files. \cr
+By default, these subdirectories are created under \code{root}:
+\itemize{
+\item \verb{data/1-source/}: Unmodified source data originating outside of the project.
+\item \verb{data/2-aux/}: Intermediate data created within the project and/or anything not considered to be source or final data.
+\item \verb{data/3-final/}: Final data products in native R formats only.
+\item \verb{output/}: Final data products for consumption outside R (CSV, XLSX, XML, HTML, PDF, etc.).
+\item \verb{scripts/}: All script files.
 }
+
+Directories are created recursively by \code{\link[base:files2]{base::dir.create()}}.
 }
 \examples{
 \dontrun{
