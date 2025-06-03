@@ -22,16 +22,11 @@ remotes::install_github("eliotmonaco/setmeup")
 
 ## Example
 
-Set up a data analysis project fast with `setup_project()` and
-`use_rmd_template()`. First, create a new project. Then run this:
+Set up a data analysis project fast with `setup_project()`. This runs
+`use_rmd_template()` by default and so will 1) create a simple and
+logical internal project structure, and 2) set up an R Notebook template
+ready for an analysis.
 
 ``` r
-library(setmeup)
-setup_project()
-use_rmd_template()
+setmeup::setup_project()
 ```
-
-These functions
-
-1.  Create a simple and logical internal project structure
-2.  Set up an R Notebook template ready for an analysis
