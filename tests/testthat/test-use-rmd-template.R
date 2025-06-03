@@ -11,7 +11,7 @@ test_that("create template in default `dir`", {
   })
   expect_true(all(dirs_exist))
   expect_true(all(files_exist))
-  expect_equal(fn_return, "scripts/my-analysis.Rmd")
+  expect_equal(fn_return, "./scripts/my-analysis.Rmd")
 })
 
 test_that("stop if `dir` doesn't exist", {

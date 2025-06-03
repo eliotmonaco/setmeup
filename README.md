@@ -22,12 +22,12 @@ remotes::install_github("eliotmonaco/setmeup")
 
 ## Example
 
-Set up a data analysis project fast with `setup_project_structure()` and
+Set up a data analysis project fast with `setup_project()` and
 `use_rmd_template()`. First, create a new project. Then run this:
 
 ``` r
 library(setmeup)
-setup_project_structure()
+setup_project()
 use_rmd_template()
 ```
 

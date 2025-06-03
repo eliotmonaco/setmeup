@@ -6,7 +6,7 @@ template:
 reference:
   - title: Project setup
   - contents:
-    - setup_project_structure
+    - setup_project
     - use_rmd_template
   - title: Data analysis
   - contents:

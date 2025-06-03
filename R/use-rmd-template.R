@@ -3,7 +3,7 @@
 #' @description
 #' This is a wrapper for [rmarkdown::draft()]. By default, it copies the
 #' relevant files for the "nb1" RMD template into the `scripts/` folder (created
-#' by [setup_project_structure()]).
+#' by [setup_project()]).
 #'
 #' @details
 #' The R Notebook template "nb1" has three related files.
@@ -13,7 +13,7 @@
 #' Options, R Markdown: The Definitive Guide][sh]).
 #' - `render.R` contains a call to [rmarkdown::render()] that's prepopulated to
 #' execute the notebook and save the `.nb.html` report in the project's
-#' `output/` directory (created by [setup_project_structure()]).
+#' `output/` directory (created by [setup_project()]).
 #' - `skeleton.Rmd` is the R Notebook file. When `use_rmd_template()` is
 #' executed, the file will be saved with the name specified in the `filename`
 #' argument.
@@ -38,10 +38,17 @@ use_rmd_template <- function(
     dir = "scripts") {
   requireNamespace("rmarkdown", quietly = TRUE)
 
+  dirname <- dir
   dir <- sub("/$", "", dir)
 
-  if (!dir.exists(dir)) {
-    stop(paste0("Folder `", dir, "` not found"))
+  # If called by `setup-project()`
+  if (!identical(parent.frame(), globalenv())) {
+    alldirs <- list.dirs()
+    dir <- alldirs[grepl(paste0("/", dir, "$"), alldirs)]
+  }
+
+  if (length(dir) == 0 || !dir.exists(dir)) {
+    stop(paste0("Folder `", dirname, "` not found"))
   }
 
   rmarkdown::draft(

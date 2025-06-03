@@ -13,7 +13,10 @@ test_that("fn works", {
 
 test_that("no dupes", {
   df <- data.frame(x = 1:3, y = letters[1:3])
-  expect_null(find_dupes(df, var = c("x", "y")))
+  expect_message(
+    expect_null(find_dupes(df, var = c("x", "y"))),
+    "No duplicates found"
+  )
 })
 
 test_that("wrong input type error", {

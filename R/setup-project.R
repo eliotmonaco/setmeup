@@ -7,9 +7,8 @@
 #' By default, these subdirectories are created under `root`:
 #'
 #' - `data/1-source/`: Unmodified source data originating outside of the project.
-#' - `data/2-aux/`: Intermediate data created within the project and/or anything not considered to be source or final data.
-#' - `data/3-final/`: Final data products in native R formats only.
-#' - `output/`: Final data products for consumption outside R (CSV, XLSX, XML, HTML, PDF, etc.).
+#' - `data/2-final/`: Final data products in native R formats only.
+#' - `output/`: Outputs for consumption outside R (CSV, XLSX, XML, HTML, PDF, etc.).
 #' - `scripts/`: All script files.
 #'
 #' Directories are created recursively by [base::dir.create()].
@@ -18,27 +17,30 @@
 #' directory).
 #' @param dirs The subdirectories to create, as a character vector. The defaults
 #' are described in the Details section.
+#' @param rmd Call [use_rmd_template()] if TRUE (with defaults only, currently).
 #'
 #' @return `root` (invisibly).
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' setup_project_structure()
+#' setup_project()
 #' }
 #'
-setup_project_structure <- function(
+setup_project <- function(
     root = getwd(),
     dirs = c(
       "data/1-source",
-      "data/2-aux",
-      "data/3-final",
+      "data/2-final",
       "output",
       "scripts"
-    )) {
+    ),
+    rmd = TRUE) {
   dirs <- paste(root, dirs, sep = "/")
 
   lapply(dirs, dir.create, recursive = TRUE)
+
+  use_rmd_template()
 
   invisible(root)
 }

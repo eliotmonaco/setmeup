@@ -19,7 +19,7 @@ use_rmd_template(filename = "analysis", template = "nb1", dir = "scripts")
 \description{
 This is a wrapper for \code{\link[rmarkdown:draft]{rmarkdown::draft()}}. By default, it copies the
 relevant files for the "nb1" RMD template into the \verb{scripts/} folder (created
-by \code{\link[=setup_project_structure]{setup_project_structure()}}).
+by \code{\link[=setup_project]{setup_project()}}).
 }
 \details{
 The R Notebook template "nb1" has three related files.
@@ -28,7 +28,7 @@ The R Notebook template "nb1" has three related files.
 be shared by any markdown documents in the same directory (see \href{https://bookdown.org/yihui/rmarkdown/html-document.html#shared-options}{Shared Options, R Markdown: The Definitive Guide}).
 \item \code{render.R} contains a call to \code{\link[rmarkdown:render]{rmarkdown::render()}} that's prepopulated to
 execute the notebook and save the \code{.nb.html} report in the project's
-\verb{output/} directory (created by \code{\link[=setup_project_structure]{setup_project_structure()}}).
+\verb{output/} directory (created by \code{\link[=setup_project]{setup_project()}}).
 \item \code{skeleton.Rmd} is the R Notebook file. When \code{use_rmd_template()} is
 executed, the file will be saved with the name specified in the \code{filename}
 argument.
