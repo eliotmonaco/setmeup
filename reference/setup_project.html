@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">setmeup</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,8 +75,9 @@ are described in the Details section.</p></dd>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>By default, these subdirectories are created under <code>root</code>:</p><ul><li><p><code>data/1-source/</code>: Unmodified source data originating outside of the project.</p></li>
-<li><p><code>data/2-final/</code>: Final data products in native R formats only.</p></li>
+    <p>By default, these subdirectories are created under <code>root</code>:</p><ul><li><p><code>data/</code></p><ul><li><p><code>1-source/</code>: Unmodified source data originating outside of the project.</p></li>
+<li><p><code>2-final/</code>: Final data products in native R formats only.</p></li>
+</ul></li>
 <li><p><code>output/</code>: Outputs for consumption outside R (CSV, XLSX, XML, HTML, PDF, etc.).</p></li>
 <li><p><code>scripts/</code>: All script files.</p></li>
 </ul><p>Directories are created recursively by <code><a href="https://rdrr.io/r/base/files2.html" class="external-link">base::dir.create()</a></code>.</p>
