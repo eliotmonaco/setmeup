@@ -11,6 +11,7 @@ reference:
   - title: Data analysis
   - contents:
     - assign_id
+    - batch_compare
     - find_dupes
     - fix_colnames
     - is_sorted

@@ -28,8 +28,11 @@ Create subdirectories for an R project.
 \details{
 By default, these subdirectories are created under \code{root}:
 \itemize{
-\item \verb{data/1-source/}: Unmodified source data originating outside of the project.
-\item \verb{data/2-final/}: Final data products in native R formats only.
+\item \verb{data/}
+\itemize{
+\item \verb{1-source/}: Unmodified source data originating outside of the project.
+\item \verb{2-final/}: Final data products in native R formats only.
+}
 \item \verb{output/}: Outputs for consumption outside R (CSV, XLSX, XML, HTML, PDF, etc.).
 \item \verb{scripts/}: All script files.
 }

@@ -6,8 +6,9 @@
 #' @details
 #' By default, these subdirectories are created under `root`:
 #'
-#' - `data/1-source/`: Unmodified source data originating outside of the project.
-#' - `data/2-final/`: Final data products in native R formats only.
+#' - `data/`
+#'     + `1-source/`: Unmodified source data originating outside of the project.
+#'     + `2-final/`: Final data products in native R formats only.
 #' - `output/`: Outputs for consumption outside R (CSV, XLSX, XML, HTML, PDF, etc.).
 #' - `scripts/`: All script files.
 #'
