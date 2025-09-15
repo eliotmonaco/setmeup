@@ -2,16 +2,20 @@
 % Please edit documentation in R/pct.R
 \name{pct}
 \alias{pct}
-\title{Calculate percentage}
+\title{Calculate percentages}
 \usage{
-pct(n, total, digits = 1)
+pct(n, total, digits = 0, format = FALSE)
 }
 \arguments{
-\item{n, total}{Numeric vectors of equal length or with one of length 1.}
+\item{n, total}{Numeric vectors of equal length or with at least one vector of
+length 1.}
 
 \item{digits}{An integer indicating the number of decimal (when positive) or
 whole number (when zero or negative) places to round the output. (See the
 same argument in \code{\link[=round_ties_away]{round_ties_away()}}.)}
+
+\item{format}{Logical indicating if the output should be formatted with a "\%"
+sign and if percentages that round to 0 should be replaced with "< 1\%".}
 }
 \value{
 A numeric vector the same length as the longer of \code{n} or \code{total.}
