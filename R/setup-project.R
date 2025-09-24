@@ -41,7 +41,9 @@ setup_project <- function(
 
   lapply(dirs, dir.create, recursive = TRUE)
 
-  use_rmd_template()
+  if (rmd) {
+    use_rmd_template()
+  }
 
   invisible(root)
 }
