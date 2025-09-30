@@ -2,6 +2,7 @@
 
 export(assign_id)
 export(batch_compare)
+export(convert_doc)
 export(find_dupes)
 export(fix_colnames)
 export(is_sorted)
