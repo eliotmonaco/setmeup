@@ -1,6 +1,6 @@
 Package: setmeup
 Title: Set up reproducible data analysis projects
-Version: 0.0.0.9005
+Version: 0.0.0.9006
 Authors@R: 
     person("Eliot", "Monaco", , "eliotmonaco@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5982-5854"))
