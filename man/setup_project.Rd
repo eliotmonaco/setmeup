@@ -6,13 +6,16 @@
 \usage{
 setup_project(
   root = getwd(),
-  dirs = c("data/1-source", "data/2-final", "output", "scripts"),
+  type = c("analysis", "dashboard"),
+  dirs = NULL,
   rmd = TRUE
 )
 }
 \arguments{
 \item{root}{The project root directory (defaults to the current working
 directory).}
+
+\item{type}{The type of project to create (\code{"analysis"} or \code{"dashboard"}).}
 
 \item{dirs}{The subdirectories to create, as a character vector. The defaults
 are described in the Details section.}
@@ -26,22 +29,33 @@ are described in the Details section.}
 Create subdirectories for an R project.
 }
 \details{
-By default, these subdirectories are created under \code{root}:
+\subsection{Default subdirectories created under \code{root}}{
+
+For \code{type = "analysis"}:
 \itemize{
 \item \verb{data/}
 \itemize{
-\item \verb{1-source/}: Unmodified source data originating outside of the project.
-\item \verb{2-final/}: Final data products in native R formats only.
+\item \verb{1-source/}: Unmodified source data files originating outside of the
+project.
+\item \verb{2-final/}: Final data products (native R formats only).
 }
-\item \verb{output/}: Outputs for consumption outside R (CSV, XLSX, XML, HTML, PDF, etc.).
-\item \verb{scripts/}: All script files.
+\item \verb{output/}: Outputs for consumption outside R (e.g., CSV, XLSX, XML, HTML,
+PDF).
+\item \verb{scripts/}: All script files (e.g., R, RMD, QMD).
+}
+
+For \code{type = "dashboard"}:
+\itemize{
+\item \verb{data/}: All data files.
+\item \verb{scripts/}: All script files (e.g., R, RMD, QMD).
 }
 
 Directories are created recursively by \code{\link[base:files2]{base::dir.create()}}.
 }
+}
 \examples{
 \dontrun{
-setup_project()
+setup_project(type = "analysis")
 }
 
 }

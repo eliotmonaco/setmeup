@@ -12,7 +12,8 @@ Include both filename extensions (this is how the "from" and "to" file
 formats are determined).}
 }
 \value{
-A character vector if \code{file2} is a markdown or typst file, otherwise \code{NULL}.
+A character vector if \code{file2} is a markdown or typst file, otherwise
+\code{file1} (invisibly).
 }
 \description{
 Convert a document from one format to another by calling the \code{pandoc} system

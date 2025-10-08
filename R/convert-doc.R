@@ -11,7 +11,8 @@
 #' Include both filename extensions (this is how the "from" and "to" file
 #' formats are determined).
 #'
-#' @returns A character vector if `file2` is a markdown or typst file, otherwise `NULL`.
+#' @returns A character vector if `file2` is a markdown or typst file, otherwise
+#' `file1` (invisibly).
 #' @export
 #'
 #' @examples
@@ -64,6 +65,6 @@ convert_doc <- function(file1, file2) {
   if (fmt[[2]] %in% c("markdown", "typst")) {
     readLines(file2)
   } else {
-    NULL
+    invisible(file1)
   }
 }
