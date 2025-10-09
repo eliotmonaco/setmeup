@@ -8,6 +8,7 @@ reference:
   - contents:
     - setup_project
     - use_rmd_template
+
   - title: Data analysis
   - contents:
     - assign_id
@@ -17,4 +18,8 @@ reference:
     - is_sorted
     - pct
     - round_ties_away
+
+  - title: Other
+  - contents:
+    - convert_doc
 
