@@ -1,7 +1,8 @@
 #' Fix column names
 #'
 #' @description
-#' Change column names to snake case and remove or replace non-word characters.
+#' Change column names to snake case, remove or replace non-word characters,
+#' and fix duplicates.
 #'
 #' @param x A vector of column names.
 #' @param n_pfx A prefix added to column names starting with a digit.
@@ -74,6 +75,17 @@ fix_colnames <- function(x, n_pfx = NULL) {
   if (!is.null(n_pfx)) {
     x <- x |>
       gsub(pattern = "(^\\d)", replacement = paste0(n_pfx, "\\1"), perl = TRUE)
+  }
+
+  # Number duplicate names
+  if (any(duplicated(x))) {
+    while (any(duplicated(x))) {
+      dupes <- which(duplicated(x))
+
+      i <- which(x == x[dupes[1]])
+
+      x[i] <- paste0(x[i], seq_along(x[i]))
+    }
   }
 
   x

@@ -4,7 +4,7 @@ Version: 0.0.0.9007
 Authors@R: 
     person("Eliot", "Monaco", , "eliotmonaco@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5982-5854"))
-Description: This package has tools to expedite reproducible data analysis projects.
+Description: Tools to expedite reproducible data analysis projects.
 License: MIT + file LICENSE
 URL: https://github.com/eliotmonaco/setmeup/
 Suggests: 

@@ -71,3 +71,11 @@ test_that("`n_pfx` num", {
   exp <- c("n_1", "n_2")
   expect_equal(act, exp)
 })
+
+test_that("duplicates", {
+  s <- c("cat", "dog", "horse", "iguana", "horse", "iguana", "horse")
+  act <- fix_colnames(s)
+  exp <- c("cat", "dog", "horse1", "iguana1", "horse2", "iguana2", "horse3")
+  expect_equal(act, exp)
+})
+
