@@ -24,7 +24,7 @@ What is this script for?
 ```{r message=FALSE}
 library(tidyverse)
 ```
- 
+
 ```{r}
 # import data
 ```

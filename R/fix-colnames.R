@@ -21,6 +21,7 @@
 #'   " Hello, World!!! ",
 #'   "hyphenated-words",
 #'   "words in 'quotes' or even \"quotes\"",
+#'   "ACRONYMThenWord",
 #'   "1"
 #' )
 #'
@@ -49,10 +50,24 @@ fix_colnames <- function(x, n_pfx = NULL) {
     trimws(which = "both") |>
     gsub(pattern = "\\s", replacement = "_") |>
     # Separate camel case
-    gsub(pattern = "([[:lower:]])([[:upper:]])", replacement = "\\1_\\2") |>
+    gsub(
+      pattern = "([[:lower:]])([[:upper:]])",
+      replacement = "\\1_\\2"
+    ) |>
+    # Separate uppercase sequence from a capitalized word
+    gsub(
+      pattern = "([[:upper:]])([[:upper:]][[:lower:]])",
+      replacement = "\\1_\\2"
+    ) |>
     # Separate digit + letter
-    gsub(pattern = "(\\d)([[:alpha:]])", replacement = "\\1_\\2") |>
-    gsub(pattern = "([[:alpha:]])(\\d)", replacement = "\\1_\\2") |>
+    gsub(
+      pattern = "(\\d)([[:alpha:]])",
+      replacement = "\\1_\\2"
+    ) |>
+    gsub(
+      pattern = "([[:alpha:]])(\\d)",
+      replacement = "\\1_\\2"
+    ) |>
     # "&" --> "and"
     gsub(pattern = "&", replacement = "_and_") |>
     # "/" --> "or"

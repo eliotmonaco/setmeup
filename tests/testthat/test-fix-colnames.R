@@ -7,7 +7,8 @@ test_that("replacements", {
     "checkThisCamelCase",
     "Letters674next0to827654digits4",
     "this&THAT",
-    "THIS/that"
+    "THIS/that",
+    "ACRONYMThenWord"
   )
   act <- fix_colnames(s)
   exp <- paste0(
@@ -17,7 +18,8 @@ test_that("replacements", {
     "check_this_camel_case_",
     "letters_674_next_0_to_827654_digits_4_",
     "this_and_that_",
-    "this_or_that"
+    "this_or_that_",
+    "acronym_then_word"
   )
   expect_equal(act, exp)
 })

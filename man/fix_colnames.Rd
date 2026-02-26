@@ -15,7 +15,8 @@ fix_colnames(x, n_pfx = NULL)
 A character vector the same length as \code{x}.
 }
 \description{
-Change column names to snake case and remove or replace non-word characters.
+Change column names to snake case, remove or replace non-word characters,
+and fix duplicates.
 }
 \examples{
 cols <- c(
@@ -28,6 +29,7 @@ cols <- c(
   " Hello, World!!! ",
   "hyphenated-words",
   "words in 'quotes' or even \"quotes\"",
+  "ACRONYMThenWord",
   "1"
 )
 
