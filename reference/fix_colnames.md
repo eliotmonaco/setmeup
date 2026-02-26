@@ -1,7 +1,7 @@
 # Fix column names
 
-Change column names to snake case and remove or replace non-word
-characters.
+Change column names to snake case, remove or replace non-word
+characters, and fix duplicates.
 
 ## Usage
 
@@ -36,6 +36,7 @@ cols <- c(
   " Hello, World!!! ",
   "hyphenated-words",
   "words in 'quotes' or even \"quotes\"",
+  "ACRONYMThenWord",
   "1"
 )
 
@@ -49,5 +50,6 @@ fix_colnames(cols, n_pfx = "n_")
 #>  [7] "hello_world"                             
 #>  [8] "hyphenated_words"                        
 #>  [9] "words_in_quotes_or_even_quotes"          
-#> [10] "n_1"                                     
+#> [10] "acronym_then_word"                       
+#> [11] "n_1"                                     
 ```

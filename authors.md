@@ -10,13 +10,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/eliotmonaco/setmeup/blob/main/DESCRIPTION)
 
-Monaco E (2025). *setmeup: Set up reproducible data analysis projects*.
-R package version 0.0.0.9008, <https://github.com/eliotmonaco/setmeup/>.
+Monaco E (2026). *setmeup: Set up reproducible data analysis projects*.
+R package version 0.0.0.9009, <https://github.com/eliotmonaco/setmeup/>.
 
     @Manual{,
       title = {setmeup: Set up reproducible data analysis projects},
       author = {Eliot Monaco},
-      year = {2025},
-      note = {R package version 0.0.0.9008},
+      year = {2026},
+      note = {R package version 0.0.0.9009},
       url = {https://github.com/eliotmonaco/setmeup/},
     }
