@@ -28,3 +28,5 @@
 
 - [`convert_doc()`](https://eliotmonaco.github.io/setmeup/reference/convert_doc.md)
   : Convert a document to another format using Pandoc
+- [`readable_table()`](https://eliotmonaco.github.io/setmeup/reference/readable_table.md)
+  : Make a readable table
