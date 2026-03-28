@@ -2,6 +2,8 @@
 
 export(assign_id)
 export(batch_compare)
+export(color_to_css_rgba)
+export(color_to_hex)
 export(convert_doc)
 export(find_dupes)
 export(fix_colnames)

@@ -21,6 +21,8 @@ reference:
 
   - title: Other
   - contents:
+    - color_to_css_rgba
+    - color_to_hex
     - convert_doc
     - readable_table
 
