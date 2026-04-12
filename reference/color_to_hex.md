@@ -12,7 +12,7 @@ color_to_hex(color, alpha = NULL)
 
 - color:
 
-  A vector of color names and/or hex strings.
+  A vector of color names and/or hex color values.
 
 - alpha:
 

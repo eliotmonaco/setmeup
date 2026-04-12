@@ -12,7 +12,7 @@ color_to_css_rgba(color, alpha = 1)
 
 - color:
 
-  A vector of color names and/or hex strings.
+  A vector of color names and/or hex color values.
 
 - alpha:
 

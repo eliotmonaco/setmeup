@@ -11,12 +11,12 @@ Source:
 [`DESCRIPTION`](https://github.com/eliotmonaco/setmeup/blob/main/DESCRIPTION)
 
 Monaco E (2026). *setmeup: Set up reproducible data analysis projects*.
-R package version 0.0.0.9011, <https://github.com/eliotmonaco/setmeup/>.
+R package version 0.0.0.9012, <https://github.com/eliotmonaco/setmeup/>.
 
     @Manual{,
       title = {setmeup: Set up reproducible data analysis projects},
       author = {Eliot Monaco},
       year = {2026},
-      note = {R package version 0.0.0.9011},
+      note = {R package version 0.0.0.9012},
       url = {https://github.com/eliotmonaco/setmeup/},
     }
