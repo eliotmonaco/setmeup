@@ -7,7 +7,7 @@
 color_to_hex(color, alpha = NULL)
 }
 \arguments{
-\item{color}{A vector of color names and/or hex strings.}
+\item{color}{A vector of color names and/or hex color values.}
 
 \item{alpha}{A vector of alpha channel values from 0 to 1.}
 }

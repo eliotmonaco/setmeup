@@ -3,7 +3,7 @@
 #' @description
 #' Convert color names or hex values to CSS rgba() function calls.
 #'
-#' @param color A vector of color names and/or hex strings.
+#' @param color A vector of color names and/or hex color values.
 #' @param alpha A vector of alpha channel values from 0 to 1.
 #'
 #' @returns A character vector of the same length as `color`.

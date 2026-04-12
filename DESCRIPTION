@@ -8,6 +8,7 @@ Description: Tools to expedite reproducible data analysis projects.
 License: MIT + file LICENSE
 URL: https://github.com/eliotmonaco/setmeup/
 Suggests: 
+    farver,
     rmarkdown,
     testthat (>= 3.0.0),
     withr

@@ -36,7 +36,11 @@ use_rmd_template <- function(
     filename = "analysis",
     template = "nb1",
     dir = "scripts") {
-  requireNamespace("rmarkdown", quietly = TRUE)
+  pkg <- requireNamespace("rmarkdown", quietly = TRUE)
+
+  if (!pkg) {
+    stop("The rmarkdown package must be installed to use this function.")
+  }
 
   dirname <- dir
   dir <- sub("/$", "", dir)

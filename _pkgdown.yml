@@ -23,6 +23,7 @@ reference:
   - contents:
     - color_to_css_rgba
     - color_to_hex
+    - contrast_color
     - convert_doc
     - readable_table
 

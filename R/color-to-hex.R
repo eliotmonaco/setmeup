@@ -8,7 +8,7 @@
 #' values with or without the alpha channel are accepted as input. However, the
 #' `alpha` argument determines if the alpha channel is included in the output.
 #'
-#' @param color A vector of color names and/or hex strings.
+#' @param color A vector of color names and/or hex color values.
 #' @param alpha A vector of alpha channel values from 0 to 1.
 #'
 #' @returns A character vector of the same length as `color`.
