@@ -14,7 +14,8 @@ If there is one input, a logical value. If there are multiple inputs,
 a logical vector the same length as the inputs.
 }
 \description{
-Check if values are sorted in increasing order from left to right.
+Check if elements across multiple vectors are sorted index-wise, or, if
+vectors are dataframe columns, row-wise.
 }
 \details{
 Any number of vectors can be compared. If the input is a single vector, the

@@ -1,7 +1,8 @@
 #' Check if values are sorted
 #'
 #' @description
-#' Check if values are sorted in increasing order from left to right.
+#' Check if elements across multiple vectors are sorted index-wise, or, if
+#' vectors are dataframe columns, row-wise.
 #'
 #' @details
 #' Any number of vectors can be compared. If the input is a single vector, the
@@ -49,8 +50,14 @@
 is_sorted <- function(...) {
   args <- list(...)
 
+  # Check lengths of arguments
   if (length(unique(lapply(args, length))) != 1) {
     stop("Vectors must be of equal length")
+  }
+
+  # Check classes of arguments
+  if (length(unique(lapply(args, class))) != 1) {
+    warning("Vectors are not the same class")
   }
 
   if (length(args) == 1) {
@@ -59,14 +66,12 @@ is_sorted <- function(...) {
     df <- cbind(...)
   }
 
-  apply(
-    X = df,
-    MARGIN = 1,
-    FUN = function(x) {
-      seq <- stats::na.omit(x)
-      # Compare the order of `seq` to the sorted order
-      all(seq == sort(seq))
-    }
-  ) |>
-    unname()
+  sorted <- apply(df, 1, function(x) {
+    seq <- stats::na.omit(x)
+
+    # Compare the order of `seq` to the sorted order
+    all(seq == sort(seq))
+  })
+
+  unname(sorted)
 }

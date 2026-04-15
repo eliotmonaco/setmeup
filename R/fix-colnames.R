@@ -46,50 +46,47 @@ fix_colnames <- function(x, n_pfx = NULL) {
     "([1-9]0{0,10}0)_(th_|th\\b)" # 10th...900000000000th by 10s
   )
 
-  x <- x |>
-    trimws(which = "both") |>
-    gsub(pattern = "\\s", replacement = "_") |>
-    # Separate camel case
-    gsub(
-      pattern = "([[:lower:]])([[:upper:]])",
-      replacement = "\\1_\\2"
-    ) |>
-    # Separate uppercase sequence from a capitalized word
-    gsub(
-      pattern = "([[:upper:]])([[:upper:]][[:lower:]])",
-      replacement = "\\1_\\2"
-    ) |>
-    # Separate digit + letter
-    gsub(
-      pattern = "(\\d)([[:alpha:]])",
-      replacement = "\\1_\\2"
-    ) |>
-    gsub(
-      pattern = "([[:alpha:]])(\\d)",
-      replacement = "\\1_\\2"
-    ) |>
-    # "&" --> "and"
-    gsub(pattern = "&", replacement = "_and_") |>
-    # "/" --> "or"
-    gsub(pattern = "/", replacement = "_or_") |>
-    gsub(pattern = chars1, replacement = "_") |>
-    gsub(pattern = chars2, replacement = "") |>
-    # Remove multiples of "_"
-    gsub(pattern = "_{2,}", replacement = "_") |>
-    # Remove "_" at start or end
-    gsub(pattern = "^_|_$", replacement = "") |>
-    tolower()
+  x <- trimws(x, which = "both")
+
+  x <- gsub("\\s", "_", x)
+
+  # Separate camel case
+  x <- gsub("([[:lower:]])([[:upper:]])", "\\1_\\2", x)
+
+  # Separate uppercase sequence from a capitalized word
+  x <- gsub("([[:upper:]])([[:upper:]][[:lower:]])", "\\1_\\2", x)
+
+  # Separate digit + letter
+  x <- gsub("(\\d)([[:alpha:]])", "\\1_\\2", x)
+
+  x <- gsub("([[:alpha:]])(\\d)", "\\1_\\2", x)
+
+  # "&" --> "and"
+  x <- gsub("&", "_and_", x)
+
+  # "/" --> "or"
+  x <- gsub("/", "_or_", x)
+
+  x <- gsub(chars1, "_", x)
+
+  x <- gsub(chars2, "", x)
+
+  # Remove multiples of "_"
+  x <- gsub("_{2,}", "_", x)
+
+  # Remove "_" at start or end
+  x <-  gsub("^_|_$", "", x)
+
+  x <- tolower(x)
 
   # Remove "_" when introduced in an ordinal number
   for (i in 1:length(ordinals)) {
-    x <- x |>
-      gsub(pattern = ordinals[i], replacement = "\\1\\2", perl = TRUE)
+    x <- gsub(ordinals[i], "\\1\\2", x, perl = TRUE)
   }
 
   # Add `n_pfx`
   if (!is.null(n_pfx)) {
-    x <- x |>
-      gsub(pattern = "(^\\d)", replacement = paste0(n_pfx, "\\1"), perl = TRUE)
+    x <- gsub("(^\\d)", paste0(n_pfx, "\\1"), x, perl = TRUE)
   }
 
   # Number duplicate names

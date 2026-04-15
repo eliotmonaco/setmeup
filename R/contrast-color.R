@@ -24,5 +24,5 @@ contrast_color <- function(color) {
     to = "hcl"
   )
 
-  ifelse(hcl[, "l"] > 60, "#000000", "#FFFFFF")
+  as.character(ifelse(hcl[, "l"] > 60, "#000000", "#FFFFFF"))
 }

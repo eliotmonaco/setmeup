@@ -41,20 +41,21 @@ readable_table <- function(df, width) {
   df <- rbind(colnames(df), df)
 
   # Add line breaks to each cell
-  df <- apply(df, 2, \(c) {
+  df <- apply(df, 2, function(c) {
     c2 <- strwrap(trimws(c), width = width, simplify = FALSE)
 
-    sapply(c2, \(x) {
+    sapply(c2, function(x) {
       paste0(x, collapse = "\n")
     })
-  }) |>
-    as.data.frame()
+  })
+
+  df <- as.data.frame(df)
 
   df <- apply(df, 1, \(r) {
     # Count the number of line breaks in each row
     loc <- gregexpr(pattern = "\n", text = r, fixed = TRUE)
 
-    n <- sapply(loc, \(x) {
+    n <- sapply(loc, function(x) {
       ml <- attr(x, "match.length")
 
       ml <- ml[ml != -1]
@@ -63,22 +64,21 @@ readable_table <- function(df, width) {
     })
 
     # Add "\n" to cells with fewer than the max number of "\n" per row
-    x <- lapply(max(n) - n, \(x) {
+    x <- lapply(max(n) - n, function(x) {
       paste(rep("\n ", x), collapse = "")
     })
 
     paste0(r, x)
-  }) |>
-    t() |>
-    as.data.frame()
+  })
+
+  df <- as.data.frame(t(df))
 
   # Split each string in each column at "\n"
   df <- apply(df, 2, \(c) {
-    unlist(strsplit(c, "\n", fixed = TRUE)) |>
-      trimws() |>
-      vpad()
-  }) |>
-    as.data.frame()
+    vpad(trimws(unlist(strsplit(c, "\n", fixed = TRUE))))
+  })
+
+  df <- as.data.frame(df)
 
   # Return var names to header
   colnames(df) <- as.character(df[1,])

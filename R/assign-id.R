@@ -78,8 +78,9 @@ assign_id <- function(
   }
 
   # Create column to preserve original row order of `df`
-  order_var <- paste("row_order", Sys.time()) |>
-    gsub(pattern = "\\s", replacement = "_")
+  order_var <- paste("row_order", Sys.time())
+
+  order_var <- gsub("\\s", "_", order_var)
 
   df[[order_var]] <- 1:nrow(df)
 

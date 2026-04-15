@@ -101,3 +101,11 @@ test_that("unnequal length error", {
   )
 })
 
+test_that("different types warning", {
+  x <- 1:3
+  y <- seq.Date(as.Date("2000-01-01"), as.Date("2000-01-03"), "day")
+  expect_warning(
+    is_sorted(x, y),
+    "Vectors are not the same class"
+  )
+})

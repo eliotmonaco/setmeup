@@ -34,8 +34,8 @@ test_that("rename `dupe_id`", {
     y = rep(LETTERS[1:4], 3)
   )
   act <- find_dupes(df, vars = c("x", "y"))
-  id_var <- paste("dupe_id", Sys.time()) |>
-    gsub(pattern = "\\s", replacement = "_")
+  id_var <- paste("dupe_id", Sys.time())
+  id_var <- gsub("\\s", "_", id_var)
   exp <- df[c(1, 5, 9, 2, 10), ]
   exp[[id_var]] <- c(1, 1, 1, 2, 2)
   rownames(exp) <- 1:nrow(exp)

@@ -43,8 +43,9 @@ find_dupes <- function(df, vars) {
 
   # Create dupe ID variable name
   if ("dupe_id" %in% colnames(df)) {
-    id_var <- paste("dupe_id", Sys.time()) |>
-      gsub(pattern = "\\s", replacement = "_")
+    id_var <- paste("dupe_id", Sys.time())
+
+    id_var <- gsub("\\s", "_", id_var)
   } else {
     id_var <- "dupe_id"
   }
