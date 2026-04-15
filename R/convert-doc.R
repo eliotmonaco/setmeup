@@ -27,7 +27,7 @@ convert_doc <- function(file1, file2) {
   }
 
   # Extract filename extensions and return Pandoc format name
-  fmt <- lapply(list(file1, file2), \(x) {
+  fmt <- lapply(list(file1, file2), function(x) {
     x <- unlist(strsplit(x, "\\."))
 
     x <- x[length(x)]

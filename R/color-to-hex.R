@@ -25,10 +25,10 @@ color_to_hex <- function(color, alpha = NULL) {
   args <- apply(mat, 2, as.list)
 
   if (is.null(alpha)) {
-    args <- lapply(args, \(ls) ls[1:3])
+    args <- lapply(args, function(ls) ls[1:3])
   } else {
     args <- mapply(
-      FUN = \(ls, a) {
+      FUN = function(ls, a) {
         ls$alpha <- a * 255
 
         ls
@@ -38,7 +38,7 @@ color_to_hex <- function(color, alpha = NULL) {
     )
   }
 
-  sapply(args, \(ls) {
+  sapply(args, function(ls) {
     ls <- append(ls, list(maxColorValue = 255))
 
     do.call(grDevices::rgb, ls)

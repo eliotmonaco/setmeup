@@ -25,8 +25,8 @@ batch_compare <- function(ls) {
     stop("`ls` is not a list or atomic vector")
   }
 
-  tf <- lapply(ls, \(x) {
-    lapply(ls, \(y) {
+  tf <- lapply(ls, function(x) {
+    lapply(ls, function(y) {
       isTRUE(all.equal(x, y))
     })
   })

@@ -15,12 +15,12 @@
 color_to_css_rgba <- function(color, alpha = 1) {
   mat <- grDevices::col2rgb(color)
 
-  ls <- apply(mat, 2, \(col) {
+  ls <- apply(mat, 2, function(col) {
     paste(as.numeric(col), collapse = ",")
   })
 
   rgba <- mapply(
-    FUN = \(x, a) {
+    FUN = function(x, a) {
       x <- paste(x, a, sep = ",")
 
       paste0("rgba(", x, ")")

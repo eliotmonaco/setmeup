@@ -40,7 +40,7 @@ pct <- function(n, total, digits = 0, format = FALSE) {
   if (format) {
     df <- data.frame(n, pct)
 
-    df$fmt <- unlist(apply(df, 1, \(x) {
+    df$fmt <- unlist(apply(df, 1, function(x) {
       if (x[2] != 0 || (x[1] == 0 && x[2] == 0)) {
         x[2]
       } else if (x[1] > 0 && x[2] == 0) {

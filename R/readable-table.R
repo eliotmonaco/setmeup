@@ -51,7 +51,7 @@ readable_table <- function(df, width) {
 
   df <- as.data.frame(df)
 
-  df <- apply(df, 1, \(r) {
+  df <- apply(df, 1, function(r) {
     # Count the number of line breaks in each row
     loc <- gregexpr(pattern = "\n", text = r, fixed = TRUE)
 
@@ -74,7 +74,7 @@ readable_table <- function(df, width) {
   df <- as.data.frame(t(df))
 
   # Split each string in each column at "\n"
-  df <- apply(df, 2, \(c) {
+  df <- apply(df, 2, function(c) {
     vpad(trimws(unlist(strsplit(c, "\n", fixed = TRUE))))
   })
 
