@@ -1,6 +1,7 @@
 # Check if values are sorted
 
-Check if values are sorted in increasing order from left to right.
+Check if elements across multiple vectors are sorted index-wise, or, if
+vectors are dataframe columns, row-wise.
 
 ## Usage
 
@@ -38,6 +39,7 @@ is_sorted(rev(letters))
 x <- 1:5
 y <- c(2, 3, NA, 0, 5)
 is_sorted(x, y)
+#> Warning: Vectors are not the same class
 #> [1]  TRUE  TRUE  TRUE FALSE  TRUE
 
 df <- data.frame(
