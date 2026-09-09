@@ -7,7 +7,7 @@ is done by
 ## Usage
 
 ``` r
-pct(n, total, digits = 0, format = FALSE)
+pct(n, total, digits = NULL, format = FALSE)
 ```
 
 ## Arguments
