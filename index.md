@@ -7,6 +7,7 @@ setmeup has tools to expedite reproducible data analysis projects.
 Install from GitHub:
 
 ``` r
+
 remotes::install_github("eliotmonaco/setmeup")
 ```
 
@@ -20,5 +21,6 @@ by default and so will 1) create a simple and logical internal project
 structure, and 2) set up an R Notebook template ready for an analysis.
 
 ``` r
+
 setmeup::setup_project()
 ```
