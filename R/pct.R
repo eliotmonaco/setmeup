@@ -20,7 +20,7 @@
 #'
 #' pct(sqrt(x), 100, digits = 2)
 #'
-pct <- function(n, total, digits = 0, format = FALSE) {
+pct <- function(n, total, digits = NULL, format = FALSE) {
   if (
     length(n) != length(total) &&
       length(n) != 1 &&
@@ -33,26 +33,37 @@ pct <- function(n, total, digits = 0, format = FALSE) {
   }
 
   n <- as.numeric(n)
+
   total <- as.numeric(total)
 
-  pct <- setmeup::round_ties_away(n / total * 100, digits = digits)
+  pct <- n / total * 100
+
+  if (!is.null(digits)) {
+    pct <- round_ties_away(pct, digits = digits)
+  }
 
   if (format) {
     df <- data.frame(n, pct)
 
-    df$fmt <- unlist(apply(df, 1, function(x) {
-      if (x[2] != 0 || (x[1] == 0 && x[2] == 0)) {
+    fmt <- unlist(apply(df, 1, function(x) {
+      if (x[2] %in% c(-Inf, Inf)) {
         x[2]
-      } else if (x[1] > 0 && x[2] == 0) {
-        # "< 1"
-        paste("<", 1 / 10^digits)
-      } else if (x[1] < 0 && x[2] == 0) {
-        # "> -1"
-        paste(">", -1 / 10^digits)
+      } else if (!is.na(x[2])) {
+        if (x[2] != 0 || (x[1] == 0 && x[2] == 0)) {
+          y <- x[2]
+        } else if (x[1] > 0 && x[2] == 0) {
+          y <- paste("<", 1 / 10^digits)
+        } else if (x[1] < 0 && x[2] == 0) {
+          y <- paste(">", -1 / 10^digits)
+        }
+
+        paste0(y, "%")
+      } else {
+        ""
       }
     }))
 
-    paste0(df$fmt, "%")
+    fmt
   } else {
     pct
   }

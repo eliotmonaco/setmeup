@@ -53,16 +53,22 @@ test_that("unequal length error", {
 test_that("formatted output", {
   sq <- seq(-8, 8, 4)
   act <- data.frame(
-    digneg1 = pct(n = sq, total = 100, digits = -1, format = TRUE),
-    dig0 = pct(n = sq, total = 1000, digits = 0, format = TRUE),
-    dig1 = pct(n = sq, total = 10000, digits = 1, format = TRUE),
-    dig2 = pct(n = sq, total = 100000, digits = 2, format = TRUE)
+    dig_neg1 = pct(n = sq, total = 100, digits = -1, format = TRUE),
+    dig_0 = pct(n = sq, total = 1000, digits = 0, format = TRUE),
+    dig_1 = pct(n = sq, total = 10000, digits = 1, format = TRUE),
+    dig_2 = pct(n = sq, total = 100000, digits = 2, format = TRUE)
   )
   exp <- data.frame(
-    digneg1 = c("-10%", "> -10%", "0%", "< 10%", "10%"),
-    dig0 = c("-1%", "> -1%", "0%", "< 1%", "1%"),
-    dig1 = c("-0.1%", "> -0.1%", "0%", "< 0.1%", "0.1%"),
-    dig2 = c("-0.01%", "> -0.01%", "0%", "< 0.01%", "0.01%")
+    dig_neg1 = c("-10%", "> -10%", "0%", "< 10%", "10%"),
+    dig_0 = c("-1%", "> -1%", "0%", "< 1%", "1%"),
+    dig_1 = c("-0.1%", "> -0.1%", "0%", "< 0.1%", "0.1%"),
+    dig_2 = c("-0.01%", "> -0.01%", "0%", "< 0.01%", "0.01%")
   )
+  expect_equal(act, exp)
+})
+
+test_that("formatted output with 0 in denominator", {
+  act <- pct(n = -1:1, total = 0, format = TRUE)
+  exp <- c("-Inf", "", "Inf")
   expect_equal(act, exp)
 })
