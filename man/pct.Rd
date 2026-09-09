@@ -4,7 +4,7 @@
 \alias{pct}
 \title{Calculate percentages}
 \usage{
-pct(n, total, digits = 0, format = FALSE)
+pct(n, total, digits = NULL, format = FALSE)
 }
 \arguments{
 \item{n, total}{Numeric vectors of equal length or with at least one vector of

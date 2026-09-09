@@ -50,7 +50,7 @@ For \code{type = "dashboard"}:
 \item \verb{scripts/}: All script files (e.g., R, RMD, QMD).
 }
 
-Directories are created recursively by \code{\link[base:files2]{base::dir.create()}}.
+Directories are created recursively by \code{\link[base:dir.create]{base::dir.create()}}.
 }
 }
 \examples{

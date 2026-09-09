@@ -14,7 +14,7 @@ whole number (when zero or negative) places to round \code{x} to. The rounding
 place is equivalent to \eqn{1 / 10^{digits}}. \code{1} rounds to the nearest
 tenths place, \code{0} rounds to the nearest ones place, and \code{-1} rounds to the
 nearest tens place. (This behaves the same as the \code{digits} argument in
-\code{\link[base:Round]{base::round()}}.)}
+\code{\link[base:round]{base::round()}}.)}
 }
 \value{
 A numeric vector the same length as \code{x}.
@@ -25,7 +25,7 @@ halfway between two values, i.e., ending in 5) rounding to the nearest value
 in the direction away from zero.
 }
 \details{
-\code{\link[base:Round]{base::round()}} rounds numbers using the "ties to even" method, resulting in
+\code{\link[base:round]{base::round()}} rounds numbers using the "ties to even" method, resulting in
 both \code{round(1.5)} and \code{round(2.5)} evaluating to \code{2}. This method attempts to
 counteract bias in data sets that include numbers that have already been
 rounded using the "ties away from 0" method (see links below for more
