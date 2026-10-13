@@ -16,8 +16,8 @@ test_that("analysis with RMD", {
     ))
     files_exist <- file.exists(c(
       "my-proj/scripts/_output.yml",
-      "my-proj/scripts/analysis.Rmd",
-      "my-proj/scripts/render.R"
+      "my-proj/scripts/_render.R",
+      "my-proj/scripts/analysis.Rmd"
     ))
   })
   expect_true(all(dirs_exist))
@@ -44,8 +44,8 @@ test_that("analysis without RMD", {
     ))
     files_exist <- file.exists(c(
       "my-proj/scripts/_output.yml",
-      "my-proj/scripts/analysis.Rmd",
-      "my-proj/scripts/render.R"
+      "my-proj/scripts/_render.R",
+      "my-proj/scripts/analysis.Rmd"
     ))
   })
   expect_true(all(dirs_exist))
@@ -69,8 +69,8 @@ test_that("dashboard without RMD", {
     ))
     files_exist <- file.exists(c(
       "my-proj/scripts/_output.yml",
-      "my-proj/scripts/analysis.Rmd",
-      "my-proj/scripts/render.R"
+      "my-proj/scripts/_render.R",
+      "my-proj/scripts/analysis.Rmd"
     ))
   })
   expect_true(all(dirs_exist))

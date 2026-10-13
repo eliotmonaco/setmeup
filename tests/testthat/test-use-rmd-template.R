@@ -5,7 +5,7 @@ test_that("create template in default `dir`", {
     dirs_exist <- dir.exists("scripts")
     files_exist <- file.exists(c(
       "scripts/_output.yml",
-      "scripts/render.R",
+      "scripts/_render.R",
       "scripts/my-analysis.Rmd"
     ))
   })

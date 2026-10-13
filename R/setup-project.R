@@ -39,10 +39,11 @@
 #' }
 #'
 setup_project <- function(
-    root = getwd(),
-    type = c("analysis", "dashboard"),
-    dirs = NULL,
-    rmd = TRUE) {
+  root = getwd(),
+  type = c("analysis", "dashboard"),
+  dirs = NULL,
+  rmd = TRUE
+) {
   type <- match.arg(type)
 
   if (is.null(dirs) && type == "analysis") {

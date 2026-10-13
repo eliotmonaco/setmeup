@@ -11,8 +11,8 @@
 #' - `_output.yml` contains the YAML options under `html_notebook`. These will
 #' be shared by any markdown documents in the same directory (see [Shared
 #' Options, R Markdown: The Definitive Guide][sh]).
-#' - `render.R` contains a call to [rmarkdown::render()] that's prepopulated to
-#' execute the notebook and save the `.nb.html` report in the project's
+#' - `_render.R` contains a call to [rmarkdown::render()] that's prepopulated to
+#' execute the notebook and save the HTML output file in the project's
 #' `output/` directory (created by [setup_project()]).
 #' - `skeleton.Rmd` is the R Notebook file. When `use_rmd_template()` is
 #' executed, the file will be saved with the name specified in the `filename`
@@ -33,9 +33,10 @@
 #' }
 #'
 use_rmd_template <- function(
-    filename = "analysis",
-    template = "nb1",
-    dir = "scripts") {
+  filename = "analysis",
+  template = "nb1",
+  dir = "scripts"
+) {
   pkg <- requireNamespace("rmarkdown", quietly = TRUE)
 
   if (!pkg) {

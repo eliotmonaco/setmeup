@@ -26,8 +26,8 @@ The R Notebook template "nb1" has three related files.
 \itemize{
 \item \verb{_output.yml} contains the YAML options under \code{html_notebook}. These will
 be shared by any markdown documents in the same directory (see \href{https://bookdown.org/yihui/rmarkdown/html-document.html#shared-options}{Shared Options, R Markdown: The Definitive Guide}).
-\item \code{render.R} contains a call to \code{\link[rmarkdown:render]{rmarkdown::render()}} that's prepopulated to
-execute the notebook and save the \code{.nb.html} report in the project's
+\item \verb{_render.R} contains a call to \code{\link[rmarkdown:render]{rmarkdown::render()}} that's prepopulated to
+execute the notebook and save the HTML output file in the project's
 \verb{output/} directory (created by \code{\link[=setup_project]{setup_project()}}).
 \item \code{skeleton.Rmd} is the R Notebook file. When \code{use_rmd_template()} is
 executed, the file will be saved with the name specified in the \code{filename}
