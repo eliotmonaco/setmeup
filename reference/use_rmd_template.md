@@ -39,10 +39,10 @@ The R Notebook template "nb1" has three related files.
   [Shared Options, R Markdown: The Definitive
   Guide](https://bookdown.org/yihui/rmarkdown/html-document.html#shared-options)).
 
-- `render.R` contains a call to
+- `_render.R` contains a call to
   [`rmarkdown::render()`](https://pkgs.rstudio.com/rmarkdown/reference/render.html)
-  that's prepopulated to execute the notebook and save the `.nb.html`
-  report in the project's `output/` directory (created by
+  that's prepopulated to execute the notebook and save the HTML output
+  file in the project's `output/` directory (created by
   [`setup_project()`](https://eliotmonaco.github.io/setmeup/reference/setup_project.md)).
 
 - `skeleton.Rmd` is the R Notebook file. When `use_rmd_template()` is

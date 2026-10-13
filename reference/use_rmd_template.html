@@ -77,8 +77,8 @@ by <code><a href="setup_project.html">setup_project()</a></code>).</p>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>The R Notebook template "nb1" has three related files.</p><ul><li><p><code>_output.yml</code> contains the YAML options under <code>html_notebook</code>. These will
 be shared by any markdown documents in the same directory (see <a href="https://bookdown.org/yihui/rmarkdown/html-document.html#shared-options" class="external-link">Shared Options, R Markdown: The Definitive Guide</a>).</p></li>
-<li><p><code>render.R</code> contains a call to <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html" class="external-link">rmarkdown::render()</a></code> that's prepopulated to
-execute the notebook and save the <code>.nb.html</code> report in the project's
+<li><p><code>_render.R</code> contains a call to <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html" class="external-link">rmarkdown::render()</a></code> that's prepopulated to
+execute the notebook and save the HTML output file in the project's
 <code>output/</code> directory (created by <code><a href="setup_project.html">setup_project()</a></code>).</p></li>
 <li><p><code>skeleton.Rmd</code> is the R Notebook file. When <code>use_rmd_template()</code> is
 executed, the file will be saved with the name specified in the <code>filename</code>
