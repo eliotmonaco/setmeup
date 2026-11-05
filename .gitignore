@@ -5,3 +5,5 @@ docs
 .httr-oauth
 .DS_Store
 .quarto
+
+inst/rmarkdown/templates/nb1/skeleton/skeleton.nb.html
